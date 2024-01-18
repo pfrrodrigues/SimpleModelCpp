@@ -1,0 +1,1545 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Wed Jan 17 20:46:05 2024
+# Process ID: 33828
+# Current directory: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test
+# Command line: vivado -mode batch -source /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/tcl/simple_sume_switch_sim.tcl -tclargs sim_switch_default
+# Log file: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/vivado.log
+# Journal file: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/vivado.jou
+#-----------------------------------------------------------
+source /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/tcl/simple_sume_switch_sim.tcl
+# set design $::env(NF_PROJECT_NAME)
+# set top top_sim
+# set sim_top top_tb
+# set device  xc7vx690t-3-ffg1761
+# set proj_dir ./project
+# set public_repo_dir $::env(SUME_FOLDER)/lib/hw/
+# set xilinx_repo_dir $::env(XILINX_VIVADO)/data/ip/xilinx/
+# set repo_dir ./ip_repo
+# set bit_settings $::env(CONSTRAINTS)/generic_bit.xdc 
+# set project_constraints $::env(NF_DESIGN_DIR)/hw/constraints/nf_sume_general.xdc
+# set nf_10g_constraints $::env(NF_DESIGN_DIR)/hw/constraints/nf_sume_10g.xdc
+# set test_name [lindex $argv 0] 
+# source $::env(NF_DESIGN_DIR)/hw/tcl/$::env(NF_PROJECT_NAME)_defines.tcl
+## set MICROBLAZE_AXI_IIC_BASEADDR 0x40800000
+## set MICROBLAZE_AXI_IIC_HIGHADDR 0x4080FFFF
+## set MICROBLAZE_AXI_IIC_SIZEADDR 0x10000
+## set MICROBLAZE_UARTLITE_BASEADDR 0x40600000
+## set MICROBLAZE_UARTLITE_HIGHADDR 0x4060FFFF
+## set MICROBLAZE_UARTLITE_SIZEADDR 0x10000
+## set MICROBLAZE_DLMB_BRAM_BASEADDR 0x00000000
+## set MICROBLAZE_DLMB_BRAM_HIGHADDR 0x0000FFFF
+## set MICROBLAZE_DLMB_BRAM_SIZEADDR 0x10000
+## set MICROBLAZE_ILMB_BRAM_BASEADDR 0x00000000
+## set MICROBLAZE_ILMB_BRAM_HIGHADDR 0x0000FFFF
+## set MICROBLAZE_ILMB_BRAM_SIZEADDR 0x10000
+## set MICROBLAZE_AXI_INTC_BASEADDR 0x41200000
+## set MICROBLAZE_AXI_INTC_HIGHADDR 0x4120FFFF
+## set MICROBLAZE_AXI_INTC_SIZEADDR 0x10000
+## set M00_BASEADDR 0x44000000
+## set M00_HIGHADDR 0x44000FFF
+## set M00_SIZEADDR 0x1000
+## set M01_BASEADDR 0x44010000
+## set M01_HIGHADDR 0x44010FFF
+## set M01_SIZEADDR 0x1000
+## set M02_BASEADDR 0x44020000
+## set M02_HIGHADDR 0x44020FFF
+## set M02_SIZEADDR 0x1000
+## set M03_BASEADDR 0x44030000
+## set M03_HIGHADDR 0x44030FFF
+## set M03_SIZEADDR 0x1000
+## set M04_BASEADDR 0x44040000
+## set M04_HIGHADDR 0x44040FFF
+## set M04_SIZEADDR 0x1000
+## set M05_BASEADDR 0x44050000
+## set M05_HIGHADDR 0x44050FFF
+## set M05_SIZEADDR 0x1000
+## set M06_BASEADDR 0x44060000
+## set M06_HIGHADDR 0x44060FFF
+## set M06_SIZEADDR 0x1000
+## set M07_BASEADDR 0x44070000
+## set M07_HIGHADDR 0x44070FFF
+## set M07_SIZEADDR 0x1000
+## set M08_BASEADDR 0x44080000
+## set M08_HIGHADDR 0x44080FFF
+## set M08_SIZEADDR 0x1000
+## set IDENTIFIER_BASEADDR $M00_BASEADDR
+## set IDENTIFIER_HIGHADDR $M00_HIGHADDR
+## set IDENTIFIER_SIZEADDR $M00_SIZEADDR
+## set INPUT_ARBITER_BASEADDR $M01_BASEADDR
+## set INPUT_ARBITER_HIGHADDR $M01_HIGHADDR
+## set INPUT_ARBITER_SIZEADDR $M01_SIZEADDR
+## set OUTPUT_QUEUES_BASEADDR $M03_BASEADDR
+## set OUTPUT_QUEUES_HIGHADDR $M03_HIGHADDR
+## set OUTPUT_QUEUES_SIZEADDR $M03_SIZEADDR
+## set OUTPUT_PORT_LOOKUP_BASEADDR $M02_BASEADDR
+## set OUTPUT_PORT_LOOKUP_HIGHADDR $M02_HIGHADDR
+## set OUTPUT_PORT_LOOKUP_SIZEADDR $M02_SIZEADDR
+## set NF_10G_INTERFACE0_BASEADDR $M04_BASEADDR
+## set NF_10G_INTERFACE0_HIGHADDR $M04_HIGHADDR
+## set NF_10G_INTERFACE0_SIZEADDR $M04_SIZEADDR
+## set NF_10G_INTERFACE1_BASEADDR $M05_BASEADDR
+## set NF_10G_INTERFACE1_HIGHADDR $M05_HIGHADDR
+## set NF_10G_INTERFACE1_SIZEADDR $M05_SIZEADDR
+## set NF_10G_INTERFACE2_BASEADDR $M06_BASEADDR
+## set NF_10G_INTERFACE2_HIGHADDR $M06_HIGHADDR
+## set NF_10G_INTERFACE2_SIZEADDR $M06_SIZEADDR
+## set NF_10G_INTERFACE3_BASEADDR $M07_BASEADDR
+## set NF_10G_INTERFACE3_HIGHADDR $M07_HIGHADDR
+## set NF_10G_INTERFACE3_SIZEADDR $M07_SIZEADDR
+## set NF_RIFFA_DMA_BASEADDR $M08_BASEADDR
+## set NF_RIFFA_DMA_HIGHADDR $M08_HIGHADDR
+## set NF_RIFFA_DMA_SIZEADDR $M08_SIZEADDR
+# create_project -name ${design} -force -dir "$::env(NF_DESIGN_DIR)/hw/${proj_dir}" -part ${device}
+# set_property source_mgmt_mode DisplayOnly [current_project]  
+# set_property top ${top} [current_fileset]
+# puts "Creating User Datapath reference project"
+Creating User Datapath reference project
+# create_fileset -constrset -quiet constraints
+# file copy ${public_repo_dir}/ ${repo_dir}
+# set_property ip_repo_paths ${repo_dir} [current_fileset]
+# add_files -fileset constraints -norecurse ${bit_settings}
+# add_files -fileset constraints -norecurse ${project_constraints}
+# add_files -fileset constraints -norecurse ${nf_10g_constraints}
+# set_property is_enabled true [get_files ${project_constraints}]
+# set_property is_enabled true [get_files ${bit_settings}]
+# set_property is_enabled true [get_files ${project_constraints}]
+# update_ip_catalog
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.2/data/ip'.
+# create_ip -name nf_sume_sdnet -vendor NetFPGA -library NetFPGA -module_name nf_sume_sdnet_ip
+# set_property generate_synth_checkpoint false [get_files nf_sume_sdnet_ip.xci]
+# reset_target all [get_ips nf_sume_sdnet_ip]
+# generate_target all [get_ips nf_sume_sdnet_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'nf_sume_sdnet_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'nf_sume_sdnet_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'nf_sume_sdnet_ip'...
+# create_ip -name input_arbiter_drr -vendor NetFPGA -library NetFPGA -module_name input_arbiter_drr_ip
+# set_property -dict [list CONFIG.C_BASEADDR $INPUT_ARBITER_BASEADDR] [get_ips input_arbiter_drr_ip]
+# set_property generate_synth_checkpoint false [get_files input_arbiter_drr_ip.xci]
+# reset_target all [get_ips input_arbiter_drr_ip]
+# generate_target all [get_ips input_arbiter_drr_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'input_arbiter_drr_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'input_arbiter_drr_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'input_arbiter_drr_ip'...
+# create_ip -name sss_output_queues -vendor NetFPGA -library NetFPGA -module_name sss_output_queues_ip
+# set_property -dict [list CONFIG.C_BASEADDR $OUTPUT_QUEUES_BASEADDR] [get_ips sss_output_queues_ip]
+# set_property generate_synth_checkpoint false [get_files sss_output_queues_ip.xci]
+# reset_target all [get_ips sss_output_queues_ip]
+# generate_target all [get_ips sss_output_queues_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'sss_output_queues_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'sss_output_queues_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'sss_output_queues_ip'...
+# create_ip -name blk_mem_gen -vendor xilinx.com -library ip -version 8.4 -module_name identifier_ip
+INFO: [Device 21-403] Loading part xc7vx690tffg1761-3
+create_ip: Time (s): cpu = 00:00:20 ; elapsed = 00:00:54 . Memory (MB): peak = 1662.566 ; gain = 389.395 ; free physical = 334 ; free virtual = 2819
+# set_property -dict [list CONFIG.Interface_Type {AXI4} CONFIG.AXI_Type {AXI4_Lite} CONFIG.AXI_Slave_Type {Memory_Slave} CONFIG.Use_AXI_ID {false} CONFIG.Load_Init_File {true} CONFIG.Coe_File {/../../../../../../create_ip/id_rom16x32.coe} CONFIG.Fill_Remaining_Memory_Locations {true} CONFIG.Remaining_Memory_Locations {DEADDEAD} CONFIG.Memory_Type {Simple_Dual_Port_RAM} CONFIG.Use_Byte_Write_Enable {true} CONFIG.Byte_Size {8} CONFIG.Assume_Synchronous_Clk {true} CONFIG.Write_Width_A {32} CONFIG.Write_Depth_A {1024} CONFIG.Read_Width_A {32} CONFIG.Operating_Mode_A {READ_FIRST} CONFIG.Write_Width_B {32} CONFIG.Read_Width_B {32} CONFIG.Operating_Mode_B {READ_FIRST} CONFIG.Enable_B {Use_ENB_Pin} CONFIG.Register_PortA_Output_of_Memory_Primitives {false} CONFIG.Register_PortB_Output_of_Memory_Primitives {false} CONFIG.Use_RSTB_Pin {true} CONFIG.Reset_Type {ASYNC} CONFIG.Port_A_Write_Rate {50} CONFIG.Port_B_Clock {100} CONFIG.Port_B_Enable_Rate {100}] [get_ips identifier_ip]
+# set_property generate_synth_checkpoint false [get_files identifier_ip.xci]
+# reset_target all [get_ips identifier_ip]
+# generate_target all [get_ips identifier_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'identifier_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'identifier_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'identifier_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Miscellaneous' target for IP 'identifier_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'identifier_ip'...
+# create_ip -name clk_wiz -vendor xilinx.com -library ip -version 6.0 -module_name clk_wiz_ip
+# set_property -dict [list CONFIG.PRIM_IN_FREQ {200.00} CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {200.000} CONFIG.USE_SAFE_CLOCK_STARTUP {true} CONFIG.RESET_TYPE {ACTIVE_LOW} CONFIG.CLKIN1_JITTER_PS {50.0} CONFIG.CLKOUT1_DRIVES {BUFGCE} CONFIG.CLKOUT2_DRIVES {BUFGCE} CONFIG.CLKOUT3_DRIVES {BUFGCE} CONFIG.CLKOUT4_DRIVES {BUFGCE} CONFIG.CLKOUT5_DRIVES {BUFGCE} CONFIG.CLKOUT6_DRIVES {BUFGCE} CONFIG.CLKOUT7_DRIVES {BUFGCE} CONFIG.MMCM_CLKFBOUT_MULT_F {5.000} CONFIG.MMCM_CLKIN1_PERIOD {5.0} CONFIG.MMCM_CLKOUT0_DIVIDE_F {5.000} CONFIG.RESET_PORT {resetn} CONFIG.CLKOUT1_JITTER {98.146} CONFIG.CLKOUT1_PHASE_ERROR {89.971}] [get_ips clk_wiz_ip]
+WARNING: [IP_Flow 19-3374] An attempt to modify the value of disabled parameter 'MMCM_CLKIN1_PERIOD' from '5.000' to '5.0' has been ignored for IP 'clk_wiz_ip'
+# set_property generate_synth_checkpoint false [get_files clk_wiz_ip.xci]
+# reset_target all [get_ips clk_wiz_ip]
+# generate_target all [get_ips clk_wiz_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'clk_wiz_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'clk_wiz_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'clk_wiz_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'clk_wiz_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'clk_wiz_ip'...
+# create_ip -name barrier -vendor NetFPGA -library NetFPGA -module_name barrier_ip
+# reset_target all [get_ips barrier_ip]
+# generate_target all [get_ips barrier_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'barrier_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'barrier_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'barrier_ip'...
+# create_ip -name axis_sim_record -vendor NetFPGA -library NetFPGA -module_name axis_sim_record_ip0
+# set_property -dict [list CONFIG.OUTPUT_FILE $::env(NF_DESIGN_DIR)/test/nf_interface_0_log.axi] [get_ips axis_sim_record_ip0]
+# reset_target all [get_ips axis_sim_record_ip0]
+# generate_target all [get_ips axis_sim_record_ip0]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_record_ip0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_record_ip0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_record_ip0'...
+# create_ip -name axis_sim_record -vendor NetFPGA -library NetFPGA -module_name axis_sim_record_ip1
+# set_property -dict [list CONFIG.OUTPUT_FILE $::env(NF_DESIGN_DIR)/test/nf_interface_1_log.axi] [get_ips axis_sim_record_ip1]
+# reset_target all [get_ips axis_sim_record_ip1]
+# generate_target all [get_ips axis_sim_record_ip1]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_record_ip1'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_record_ip1'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_record_ip1'...
+# create_ip -name axis_sim_record -vendor NetFPGA -library NetFPGA -module_name axis_sim_record_ip2
+# set_property -dict [list CONFIG.OUTPUT_FILE $::env(NF_DESIGN_DIR)/test/nf_interface_2_log.axi] [get_ips axis_sim_record_ip2]
+# reset_target all [get_ips axis_sim_record_ip2]
+# generate_target all [get_ips axis_sim_record_ip2]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_record_ip2'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_record_ip2'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_record_ip2'...
+# create_ip -name axis_sim_record -vendor NetFPGA -library NetFPGA -module_name axis_sim_record_ip3
+# set_property -dict [list CONFIG.OUTPUT_FILE $::env(NF_DESIGN_DIR)/test/nf_interface_3_log.axi] [get_ips axis_sim_record_ip3]
+# reset_target all [get_ips axis_sim_record_ip3]
+# generate_target all [get_ips axis_sim_record_ip3]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_record_ip3'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_record_ip3'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_record_ip3'...
+# create_ip -name axis_sim_record -vendor NetFPGA -library NetFPGA -module_name axis_sim_record_ip4
+# set_property -dict [list CONFIG.OUTPUT_FILE $::env(NF_DESIGN_DIR)/test/dma_0_log.axi] [get_ips axis_sim_record_ip4]
+# reset_target all [get_ips axis_sim_record_ip4]
+# generate_target all [get_ips axis_sim_record_ip4]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_record_ip4'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_record_ip4'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_record_ip4'...
+# create_ip -name axis_sim_stim -vendor NetFPGA -library NetFPGA -module_name axis_sim_stim_ip0
+# set_property -dict [list CONFIG.input_file $::env(NF_DESIGN_DIR)/test/nf_interface_0_stim.axi] [get_ips axis_sim_stim_ip0]
+# generate_target all [get_ips axis_sim_stim_ip0]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_stim_ip0'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_stim_ip0'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_stim_ip0'...
+# create_ip -name axis_sim_stim -vendor NetFPGA -library NetFPGA -module_name axis_sim_stim_ip1
+# set_property -dict [list CONFIG.input_file $::env(NF_DESIGN_DIR)/test/nf_interface_1_stim.axi] [get_ips axis_sim_stim_ip1]
+# generate_target all [get_ips axis_sim_stim_ip1]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_stim_ip1'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_stim_ip1'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_stim_ip1'...
+# create_ip -name axis_sim_stim -vendor NetFPGA -library NetFPGA -module_name axis_sim_stim_ip2
+# set_property -dict [list CONFIG.input_file $::env(NF_DESIGN_DIR)/test/nf_interface_2_stim.axi] [get_ips axis_sim_stim_ip2]
+# generate_target all [get_ips axis_sim_stim_ip2]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_stim_ip2'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_stim_ip2'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_stim_ip2'...
+# create_ip -name axis_sim_stim -vendor NetFPGA -library NetFPGA -module_name axis_sim_stim_ip3
+# set_property -dict [list CONFIG.input_file $::env(NF_DESIGN_DIR)/test/nf_interface_3_stim.axi] [get_ips axis_sim_stim_ip3]
+# generate_target all [get_ips axis_sim_stim_ip3]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_stim_ip3'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_stim_ip3'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_stim_ip3'...
+# create_ip -name axis_sim_stim -vendor NetFPGA -library NetFPGA -module_name axis_sim_stim_ip4
+# set_property -dict [list CONFIG.input_file $::env(NF_DESIGN_DIR)/test/dma_0_stim.axi] [get_ips axis_sim_stim_ip4]
+# generate_target all [get_ips axis_sim_stim_ip4]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axis_sim_stim_ip4'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axis_sim_stim_ip4'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axis_sim_stim_ip4'...
+# create_ip -name axi_sim_transactor -vendor NetFPGA -library NetFPGA -module_name axi_sim_transactor_ip
+# set_property -dict [list CONFIG.STIM_FILE $::env(NF_DESIGN_DIR)/test/reg_stim.axi CONFIG.EXPECT_FILE $::env(NF_DESIGN_DIR)/test/reg_expect.axi CONFIG.LOG_FILE $::env(NF_DESIGN_DIR)/test/reg_stim.log] [get_ips axi_sim_transactor_ip]
+# reset_target all [get_ips axi_sim_transactor_ip]
+# generate_target all [get_ips axi_sim_transactor_ip]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'axi_sim_transactor_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'axi_sim_transactor_ip'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'axi_sim_transactor_ip'...
+# update_ip_catalog
+# source $::env(NF_DESIGN_DIR)/hw/tcl/control_sub_sim.tcl
+## set scripts_vivado_version 2018.2
+## set current_vivado_version [version -short]
+## if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
+##    puts ""
+##    puts "ERROR: This script was created for Vivado <$scripts_vivado_version> and is being run in <$current_vivado_version> of Vivado. Please run the script in Vivado <$scripts_vivado_version> then open the design in Vivado <$current_vivado_version>. Upgrade the design by running \"Tools => Report => Report IP Status...\", then run write_bd_tcl to create an updated script."
+## 
+##    return 1
+## }
+## set design_name control_sub
+## if { [get_projects -quiet] eq "" } {
+##    puts "ERROR: Please open or create a project!"
+##    return 1
+## }
+## set errMsg ""
+## set nRet 0
+## set cur_design [current_bd_design -quiet]
+## set list_cells [get_bd_cells -quiet]
+## if { ${design_name} eq "" } {
+##    # USE CASES:
+##    #    1) Design_name not set
+## 
+##    set errMsg "ERROR: Please set the variable <design_name> to a non-empty value."
+##    set nRet 1
+## 
+## } elseif { ${cur_design} ne "" && ${list_cells} eq "" } {
+##    # USE CASES:
+##    #    2): Current design opened AND is empty AND names same.
+##    #    3): Current design opened AND is empty AND names diff; design_name NOT in project.
+##    #    4): Current design opened AND is empty AND names diff; design_name exists in project.
+## 
+##    if { $cur_design ne $design_name } {
+##       puts "INFO: Changing value of <design_name> from <$design_name> to <$cur_design> since current design is empty."
+##       set design_name [get_property NAME $cur_design]
+##    }
+##    puts "INFO: Constructing design in IPI design <$cur_design>..."
+## 
+## } elseif { ${cur_design} ne "" && $list_cells ne "" && $cur_design eq $design_name } {
+##    # USE CASES:
+##    #    5) Current design opened AND has components AND same names.
+## 
+##    set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##    set nRet 1
+## } elseif { [get_files -quiet ${design_name}.bd] ne "" } {
+##    # USE CASES: 
+##    #    6) Current opened design, has components, but diff names, design_name exists in project.
+##    #    7) No opened design, design_name exists in project.
+## 
+##    set errMsg "ERROR: Design <$design_name> already exists in your project, please set the variable <design_name> to another value."
+##    set nRet 2
+## 
+## } else {
+##    # USE CASES:
+##    #    8) No opened design, design_name not in project.
+##    #    9) Current opened design, has components, but diff names, design_name not in project.
+## 
+##    puts "INFO: Currently there is no design <$design_name> in project, so creating one..."
+## 
+##    create_bd_design $design_name
+## 
+##    puts "INFO: Making design <$design_name> as current_bd_design."
+##    current_bd_design $design_name
+## 
+## }
+INFO: Currently there is no design <control_sub> in project, so creating one...
+Wrote  : </home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/control_sub.bd> 
+INFO: Making design <control_sub> as current_bd_design.
+## puts "INFO: Currently the variable <design_name> is equal to \"$design_name\"."
+INFO: Currently the variable <design_name> is equal to "control_sub".
+## if { $nRet != 0 } {
+##    puts $errMsg
+##    return $nRet
+## }
+## proc create_root_design { parentCell } {
+## 
+##   if { $parentCell eq "" } {
+##      set parentCell [get_bd_cells /]
+##   }
+## 
+##   # Get object for parentCell
+##   set parentObj [get_bd_cells $parentCell]
+##   if { $parentObj == "" } {
+##      puts "ERROR: Unable to find parent cell <$parentCell>!"
+##      return
+##   }
+## 
+##   # Make sure parentObj is hier blk
+##   set parentType [get_property TYPE $parentObj]
+##   if { $parentType ne "hier" } {
+##      puts "ERROR: Parent <$parentObj> has TYPE = <$parentType>. Expected to be <hier>."
+##      return
+##   }
+## 
+##   # Save current instance; Restore later
+##   set oldCurInst [current_bd_instance .]
+## 
+##   # Set parent object as current
+##   current_bd_instance $parentObj
+## 
+## 
+##   # Create interface ports
+##   set M00_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M00_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M00_AXI
+##   set M01_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M01_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M01_AXI
+##   set M02_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M02_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M02_AXI
+##   set M03_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M03_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M03_AXI
+##   set M04_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M04_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M04_AXI
+##   set M05_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M05_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M05_AXI
+##   set M06_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M06_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M06_AXI
+##   set M07_AXI [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:aximm_rtl:1.0 M07_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.DATA_WIDTH {32} CONFIG.PROTOCOL {AXI4LITE}  ] $M07_AXI
+##   set S00_AXI [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:aximm_rtl:1.0 S00_AXI ]
+##   set_property -dict [ list CONFIG.ADDR_WIDTH {32} CONFIG.ARUSER_WIDTH {0} CONFIG.AWUSER_WIDTH {0} CONFIG.BUSER_WIDTH {0} CONFIG.CLK_DOMAIN {} CONFIG.DATA_WIDTH {32} CONFIG.FREQ_HZ {100000000} CONFIG.ID_WIDTH {0} CONFIG.MAX_BURST_LENGTH {256} CONFIG.NUM_READ_OUTSTANDING {2} CONFIG.NUM_WRITE_OUTSTANDING {2} CONFIG.PHASE {0.000} CONFIG.PROTOCOL {AXI4} CONFIG.READ_WRITE_MODE {READ_WRITE} CONFIG.RUSER_WIDTH {0} CONFIG.SUPPORTS_NARROW_BURST {1} CONFIG.WUSER_WIDTH {0}  ] $S00_AXI
+## 
+##   # Create ports
+##   set axi_lite_aclk [ create_bd_port -dir I -type clk axi_lite_aclk ]
+##   set axi_lite_areset [ create_bd_port -dir I -type rst axi_lite_areset ]
+##   set core_clk [ create_bd_port -dir I -type clk core_clk ]
+##   set_property -dict [ list CONFIG.FREQ_HZ {200000000}  ] $core_clk
+##   set core_resetn [ create_bd_port -dir I -type rst core_resetn ]
+##   
+##   
+##     
+## 
+##   # Create instance: axi_interconnect_0, and set properties
+##   set axi_interconnect_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:axi_interconnect:2.1 axi_interconnect_0 ]
+##   set_property -dict [ list CONFIG.NUM_MI {8} CONFIG.TRANSLATION_MODE {0} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M00_HAS_REGSLICE {3} CONFIG.M00_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M01_HAS_REGSLICE {3} CONFIG.M01_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M02_HAS_REGSLICE {3} CONFIG.M02_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M03_HAS_REGSLICE {3} CONFIG.M03_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M04_HAS_REGSLICE {3} CONFIG.M04_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M05_HAS_REGSLICE {3} CONFIG.M05_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M06_HAS_REGSLICE {3} CONFIG.M06_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+##   set_property -dict [list CONFIG.M07_HAS_REGSLICE {3} CONFIG.M07_HAS_DATA_FIFO {1} ] $axi_interconnect_0              
+##   set_property -dict [list CONFIG.S00_HAS_REGSLICE {3} CONFIG.S00_HAS_DATA_FIFO {1} ] $axi_interconnect_0
+## 
+## 
+## # Add AXI clock converter
+## create_bd_cell -type ip -vlnv xilinx.com:ip:axi_clock_converter:2.1 axi_clock_converter_0
+## connect_bd_intf_net [get_bd_intf_ports S00_AXI] [get_bd_intf_pins axi_clock_converter_0/S_AXI]
+## connect_bd_intf_net [get_bd_intf_pins axi_clock_converter_0/M_AXI] -boundary_type upper [get_bd_intf_pins axi_interconnect_0/S00_AXI]
+## 
+##   # Create interface connections
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M00_AXI [get_bd_intf_ports M00_AXI] [get_bd_intf_pins axi_interconnect_0/M00_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M01_AXI [get_bd_intf_ports M01_AXI] [get_bd_intf_pins axi_interconnect_0/M01_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M02_AXI [get_bd_intf_ports M02_AXI] [get_bd_intf_pins axi_interconnect_0/M02_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M03_AXI [get_bd_intf_ports M03_AXI] [get_bd_intf_pins axi_interconnect_0/M03_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M04_AXI [get_bd_intf_ports M04_AXI] [get_bd_intf_pins axi_interconnect_0/M04_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M05_AXI [get_bd_intf_ports M05_AXI] [get_bd_intf_pins axi_interconnect_0/M05_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M06_AXI [get_bd_intf_ports M06_AXI] [get_bd_intf_pins axi_interconnect_0/M06_AXI]
+##   connect_bd_intf_net -intf_net axi_interconnect_0_M07_AXI [get_bd_intf_ports M07_AXI] [get_bd_intf_pins axi_interconnect_0/M07_AXI]
+## 
+##   # Create port connections
+##   connect_bd_net -net axi_lite_aclk_1 [get_bd_ports axi_lite_aclk]  [get_bd_pins axi_clock_converter_0/s_axi_aclk] 
+## connect_bd_net -net core_clk_1 [get_bd_ports core_clk]  [get_bd_pins axi_clock_converter_0/m_axi_aclk] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/M07_ACLK] 
+## connect_bd_net -net axi_lite_areset_1 [get_bd_ports axi_lite_areset] [get_bd_pins axi_clock_converter_0/s_axi_aresetn] 
+## connect_bd_net -net core_resetn_1 [get_bd_ports core_resetn] [get_bd_pins axi_clock_converter_0/m_axi_aresetn] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/ARESETN]  [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/M07_ARESETN] 
+## 
+##   # Create address segments
+## source $::env(NF_DESIGN_DIR)/hw/tcl/$::env(NF_PROJECT_NAME)_defines.tcl
+##   assign_bd_address [get_bd_addr_segs {M00_AXI/Reg }]  
+##   set_property offset $M00_BASEADDR [get_bd_addr_segs {S00_AXI/SEG_M00_AXI_Reg}]
+##   set_property range $M00_SIZEADDR [get_bd_addr_segs {S00_AXI/SEG_M00_AXI_Reg}] 
+## 
+##  assign_bd_address [get_bd_addr_segs {M01_AXI/Reg }]  
+##   set_property offset $M01_BASEADDR [get_bd_addr_segs {S00_AXI/SEG_M01_AXI_Reg}]
+##   set_property range $M01_SIZEADDR [get_bd_addr_segs {S00_AXI/SEG_M01_AXI_Reg}] 
+## 
+## 
+## assign_bd_address [get_bd_addr_segs {M02_AXI/Reg }]  
+##   set_property offset $M02_BASEADDR [get_bd_addr_segs {S00_AXI/SEG_M02_AXI_Reg}]
+##   set_property range $M02_SIZEADDR [get_bd_addr_segs {S00_AXI/SEG_M02_AXI_Reg}] 
+## 
+## assign_bd_address [get_bd_addr_segs {M03_AXI/Reg }]  
+##   set_property offset $M03_BASEADDR [get_bd_addr_segs {S00_AXI/SEG_M03_AXI_Reg}]
+##   set_property range $M03_SIZEADDR [get_bd_addr_segs {S00_AXI/SEG_M03_AXI_Reg}] 
+## 
+##  
+##   # Restore current instance
+##   current_bd_instance $oldCurInst
+## 
+##   save_bd_design
+## }
+## create_root_design ""
+CRITICAL WARNING: [BD 41-737] Cannot set the parameter TRANSLATION_MODE on /axi_interconnect_0. It is read-only.
+### set MICROBLAZE_AXI_IIC_BASEADDR 0x40800000
+### set MICROBLAZE_AXI_IIC_HIGHADDR 0x4080FFFF
+### set MICROBLAZE_AXI_IIC_SIZEADDR 0x10000
+### set MICROBLAZE_UARTLITE_BASEADDR 0x40600000
+### set MICROBLAZE_UARTLITE_HIGHADDR 0x4060FFFF
+### set MICROBLAZE_UARTLITE_SIZEADDR 0x10000
+### set MICROBLAZE_DLMB_BRAM_BASEADDR 0x00000000
+### set MICROBLAZE_DLMB_BRAM_HIGHADDR 0x0000FFFF
+### set MICROBLAZE_DLMB_BRAM_SIZEADDR 0x10000
+### set MICROBLAZE_ILMB_BRAM_BASEADDR 0x00000000
+### set MICROBLAZE_ILMB_BRAM_HIGHADDR 0x0000FFFF
+### set MICROBLAZE_ILMB_BRAM_SIZEADDR 0x10000
+### set MICROBLAZE_AXI_INTC_BASEADDR 0x41200000
+### set MICROBLAZE_AXI_INTC_HIGHADDR 0x4120FFFF
+### set MICROBLAZE_AXI_INTC_SIZEADDR 0x10000
+### set M00_BASEADDR 0x44000000
+### set M00_HIGHADDR 0x44000FFF
+### set M00_SIZEADDR 0x1000
+### set M01_BASEADDR 0x44010000
+### set M01_HIGHADDR 0x44010FFF
+### set M01_SIZEADDR 0x1000
+### set M02_BASEADDR 0x44020000
+### set M02_HIGHADDR 0x44020FFF
+### set M02_SIZEADDR 0x1000
+### set M03_BASEADDR 0x44030000
+### set M03_HIGHADDR 0x44030FFF
+### set M03_SIZEADDR 0x1000
+### set M04_BASEADDR 0x44040000
+### set M04_HIGHADDR 0x44040FFF
+### set M04_SIZEADDR 0x1000
+### set M05_BASEADDR 0x44050000
+### set M05_HIGHADDR 0x44050FFF
+### set M05_SIZEADDR 0x1000
+### set M06_BASEADDR 0x44060000
+### set M06_HIGHADDR 0x44060FFF
+### set M06_SIZEADDR 0x1000
+### set M07_BASEADDR 0x44070000
+### set M07_HIGHADDR 0x44070FFF
+### set M07_SIZEADDR 0x1000
+### set M08_BASEADDR 0x44080000
+### set M08_HIGHADDR 0x44080FFF
+### set M08_SIZEADDR 0x1000
+### set IDENTIFIER_BASEADDR $M00_BASEADDR
+### set IDENTIFIER_HIGHADDR $M00_HIGHADDR
+### set IDENTIFIER_SIZEADDR $M00_SIZEADDR
+### set INPUT_ARBITER_BASEADDR $M01_BASEADDR
+### set INPUT_ARBITER_HIGHADDR $M01_HIGHADDR
+### set INPUT_ARBITER_SIZEADDR $M01_SIZEADDR
+### set OUTPUT_QUEUES_BASEADDR $M03_BASEADDR
+### set OUTPUT_QUEUES_HIGHADDR $M03_HIGHADDR
+### set OUTPUT_QUEUES_SIZEADDR $M03_SIZEADDR
+### set OUTPUT_PORT_LOOKUP_BASEADDR $M02_BASEADDR
+### set OUTPUT_PORT_LOOKUP_HIGHADDR $M02_HIGHADDR
+### set OUTPUT_PORT_LOOKUP_SIZEADDR $M02_SIZEADDR
+### set NF_10G_INTERFACE0_BASEADDR $M04_BASEADDR
+### set NF_10G_INTERFACE0_HIGHADDR $M04_HIGHADDR
+### set NF_10G_INTERFACE0_SIZEADDR $M04_SIZEADDR
+### set NF_10G_INTERFACE1_BASEADDR $M05_BASEADDR
+### set NF_10G_INTERFACE1_HIGHADDR $M05_HIGHADDR
+### set NF_10G_INTERFACE1_SIZEADDR $M05_SIZEADDR
+### set NF_10G_INTERFACE2_BASEADDR $M06_BASEADDR
+### set NF_10G_INTERFACE2_HIGHADDR $M06_HIGHADDR
+### set NF_10G_INTERFACE2_SIZEADDR $M06_SIZEADDR
+### set NF_10G_INTERFACE3_BASEADDR $M07_BASEADDR
+### set NF_10G_INTERFACE3_HIGHADDR $M07_HIGHADDR
+### set NF_10G_INTERFACE3_SIZEADDR $M07_SIZEADDR
+### set NF_RIFFA_DMA_BASEADDR $M08_BASEADDR
+### set NF_RIFFA_DMA_HIGHADDR $M08_HIGHADDR
+### set NF_RIFFA_DMA_SIZEADDR $M08_SIZEADDR
+</M00_AXI/Reg> is being mapped into </S00_AXI> at <0x44A00000 [ 64K ]>
+</M01_AXI/Reg> is being mapped into </S00_AXI> at <0x44A00000 [ 64K ]>
+</M02_AXI/Reg> is being mapped into </S00_AXI> at <0x44A00000 [ 64K ]>
+</M03_AXI/Reg> is being mapped into </S00_AXI> at <0x44A00000 [ 64K ]>
+Wrote  : </home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/control_sub.bd> 
+# read_verilog "$::env(NF_DESIGN_DIR)/hw/hdl/axi_clocking.v"
+# read_verilog "$::env(NF_DESIGN_DIR)/hw/hdl/nf_datapath.v"
+# read_verilog "$::env(NF_DESIGN_DIR)/hw/hdl/top_sim.v"
+# read_verilog "$::env(NF_DESIGN_DIR)/hw/hdl/top_tb.v"
+# update_compile_order -fileset sources_1
+# update_compile_order -fileset sim_1
+# set_property top ${sim_top} [get_filesets sim_1]
+# set_property include_dirs ${proj_dir} [get_filesets sim_1]
+# set_property simulator_language Mixed [current_project]
+# set_property verilog_define { {SIMULATION=1} } [get_filesets sim_1]
+# set_property -name xsim.more_options -value {-testplusarg TESTNAME=basic_test} -objects [get_filesets sim_1]
+# set_property runtime {} [get_filesets sim_1]
+# set_property target_simulator xsim [current_project]
+# set_property compxlib.xsim_compiled_library_dir {} [current_project]
+# set_property top_lib xil_defaultlib [get_filesets sim_1]
+# update_compile_order -fileset sim_1
+update_compile_order: Time (s): cpu = 00:00:22 ; elapsed = 00:00:07 . Memory (MB): peak = 2002.719 ; gain = 8.008 ; free physical = 469 ; free virtual = 2701
+# set output [exec python $::env(NF_DESIGN_DIR)/test/${test_name}/run.py]
+# puts $output
+loading libsume..
+About to start the test
+# set_property xsim.view {} [get_filesets sim_1]
+# launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5698] Checking validity of IPs in the design for the 'XSim' simulator...
+CRITICAL WARNING: [BD 41-1356] Address block </M04_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M05_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M06_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M07_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M04_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M05_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M06_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+CRITICAL WARNING: [BD 41-1356] Address block </M07_AXI/Reg> is not mapped into </S00_AXI>. Please use Address Editor to either map or exclude it.
+Wrote  : </home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/control_sub.bd> 
+VHDL Output written to : /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/synth/control_sub.v
+VHDL Output written to : /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/sim/control_sub.v
+VHDL Output written to : /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/hdl/control_sub_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_clock_converter_0 .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/s00_mmu .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m07_couplers/m07_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m06_couplers/m06_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m05_couplers/m05_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m04_couplers/m04_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m03_couplers/m03_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m02_couplers/m02_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m01_couplers/m01_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/m00_couplers/m00_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/s00_couplers/s00_data_fifo .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_interconnect_0/s00_couplers/auto_pc .
+Exporting to file /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/hw_handoff/control_sub.hwh
+Generated Block Design Tcl file /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/hw_handoff/control_sub_bd.tcl
+Generated Hardware Definition File /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/synth/control_sub.hwdef
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-4795] Using compiled simulation libraries for IPs
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [USF-XSim-7] Finding pre-compiled libraries...
+INFO: [USF-XSim-11] File '/opt/Xilinx/Vivado/2018.2/data/xsim/xsim.ini' copied to run dir:'/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-54] Inspecting design source files for 'top_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim/id_rom16x32.coe'
+INFO: [SIM-utils-43] Exported '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim/identifier_ip.mif'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj top_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/barrier_ip/hdl/barrier.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module barrier
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/barrier_ip/sim/barrier_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module barrier_ip
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v" into library fifo_generator_v13_2_2
+INFO: [VRFC 10-311] analyzing module fifo_generator_vlog_beh
+INFO: [VRFC 10-2458] undeclared symbol wr_rst_busy_i, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:1249]
+INFO: [VRFC 10-2458] undeclared symbol wr_eop_ad, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:1331]
+INFO: [VRFC 10-2458] undeclared symbol rd_eop_ad, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:1332]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_axis, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:1574]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_wach, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:2099]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_wdch, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:2319]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_wrch, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:2486]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_rach, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:2866]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_rdch, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:3099]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_CONV_VER
+INFO: [VRFC 10-2458] undeclared symbol safety_ckt_rd_rst, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:4153]
+INFO: [VRFC 10-2458] undeclared symbol safety_ckt_rd_rst, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:4361]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_sync_stage
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_bhv_ver_as
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_beh_ver_ll_afifo
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_bhv_ver_ss
+INFO: [VRFC 10-2458] undeclared symbol srst_wrst_busy, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/simulation/fifo_generator_vlog_beh.v:7793]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_bhv_ver_preload0
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_axic_reg_slice
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/hdl/fifo_generator_v13_2_rfs.v" into library fifo_generator_v13_2_2
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2
+INFO: [VRFC 10-2458] undeclared symbol sleep_i, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/hdl/fifo_generator_v13_2_rfs.v:519]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_axi_clock_converter_0_0/sim/control_sub_axi_clock_converter_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_axi_clock_converter_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_xbar_0/sim/control_sub_xbar_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_xbar_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_s00_mmu_0/sim/control_sub_s00_mmu_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_s00_mmu_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m07_data_fifo_0/sim/control_sub_m07_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m07_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m06_data_fifo_0/sim/control_sub_m06_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m06_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m05_data_fifo_0/sim/control_sub_m05_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m05_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m04_data_fifo_0/sim/control_sub_m04_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m04_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m03_data_fifo_0/sim/control_sub_m03_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m03_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m02_data_fifo_0/sim/control_sub_m02_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m02_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m01_data_fifo_0/sim/control_sub_m01_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m01_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_m00_data_fifo_0/sim/control_sub_m00_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_m00_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_s00_data_fifo_0/sim/control_sub_s00_data_fifo_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_s00_data_fifo_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/ip/control_sub_auto_pc_0/sim/control_sub_auto_pc_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub_auto_pc_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/bd/control_sub/sim/control_sub.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control_sub
+INFO: [VRFC 10-311] analyzing module control_sub_axi_interconnect_0_0
+INFO: [VRFC 10-311] analyzing module m00_couplers_imp_35MSE9
+INFO: [VRFC 10-311] analyzing module m01_couplers_imp_159MA5B
+INFO: [VRFC 10-311] analyzing module m02_couplers_imp_1UHPQGS
+INFO: [VRFC 10-311] analyzing module m03_couplers_imp_V7OM1U
+INFO: [VRFC 10-311] analyzing module m04_couplers_imp_73P722
+INFO: [VRFC 10-311] analyzing module m05_couplers_imp_1194TWK
+INFO: [VRFC 10-311] analyzing module m06_couplers_imp_1YASCCN
+INFO: [VRFC 10-311] analyzing module m07_couplers_imp_RC6YHL
+INFO: [VRFC 10-311] analyzing module s00_couplers_imp_1S77UJ5
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip4/hdl/axis_sim_record.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record
+WARNING: [VRFC 10-756] identifier state is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip4/hdl/axis_sim_record.v:93]
+WARNING: [VRFC 10-756] identifier ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip4/hdl/axis_sim_record.v:94]
+WARNING: [VRFC 10-756] identifier not_ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip4/hdl/axis_sim_record.v:95]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip4/sim/axis_sim_record_ip4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record_ip4
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip3/hdl/axis_sim_record.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record
+WARNING: [VRFC 10-756] identifier state is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip3/hdl/axis_sim_record.v:93]
+WARNING: [VRFC 10-756] identifier ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip3/hdl/axis_sim_record.v:94]
+WARNING: [VRFC 10-756] identifier not_ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip3/hdl/axis_sim_record.v:95]
+WARNING: [VRFC 10-2845] overwriting previous definition of module axis_sim_record [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip3/hdl/axis_sim_record.v:59]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip3/sim/axis_sim_record_ip3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record_ip3
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip2/hdl/axis_sim_record.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record
+WARNING: [VRFC 10-756] identifier state is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip2/hdl/axis_sim_record.v:93]
+WARNING: [VRFC 10-756] identifier ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip2/hdl/axis_sim_record.v:94]
+WARNING: [VRFC 10-756] identifier not_ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip2/hdl/axis_sim_record.v:95]
+WARNING: [VRFC 10-2845] overwriting previous definition of module axis_sim_record [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip2/hdl/axis_sim_record.v:59]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip2/sim/axis_sim_record_ip2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record_ip2
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip1/hdl/axis_sim_record.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record
+WARNING: [VRFC 10-756] identifier state is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip1/hdl/axis_sim_record.v:93]
+WARNING: [VRFC 10-756] identifier ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip1/hdl/axis_sim_record.v:94]
+WARNING: [VRFC 10-756] identifier not_ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip1/hdl/axis_sim_record.v:95]
+WARNING: [VRFC 10-2845] overwriting previous definition of module axis_sim_record [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip1/hdl/axis_sim_record.v:59]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip1/sim/axis_sim_record_ip1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record_ip1
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip0/hdl/axis_sim_record.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record
+WARNING: [VRFC 10-756] identifier state is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip0/hdl/axis_sim_record.v:93]
+WARNING: [VRFC 10-756] identifier ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip0/hdl/axis_sim_record.v:94]
+WARNING: [VRFC 10-756] identifier not_ready_count is used before its declaration [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip0/hdl/axis_sim_record.v:95]
+WARNING: [VRFC 10-2845] overwriting previous definition of module axis_sim_record [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip0/hdl/axis_sim_record.v:59]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_record_ip0/sim/axis_sim_record_ip0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axis_sim_record_ip0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/identifier_ip/sim/identifier_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module identifier_ip
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/sss_small_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sss_small_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/sss_fallthrough_small_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sss_fallthrough_small_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/small_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module small_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/fallthrough_small_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fallthrough_small_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/sss_output_queues_cpu_regs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sss_output_queues_cpu_regs
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/sss_output_queues.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sss_output_queues
+INFO: [VRFC 10-2458] undeclared symbol resetn_sync, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/hdl/sss_output_queues.v:754]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/sss_output_queues_ip/sim/sss_output_queues_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sss_output_queues_ip
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/axis_infrastructure_v1_1_0/hdl/axis_infrastructure_v1_1_vl_rfs.v" into library axis_infrastructure_v1_1_0
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_mux_enc
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_util_aclken_converter
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_util_aclken_converter_wrapper
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_util_axis2vector
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_util_vector2axis
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_clock_synchronizer
+INFO: [VRFC 10-311] analyzing module axis_infrastructure_v1_1_0_cdc_handshake
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v" into library fifo_generator_v13_2_2
+INFO: [VRFC 10-311] analyzing module fifo_generator_vlog_beh
+INFO: [VRFC 10-2458] undeclared symbol wr_rst_busy_i, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:1249]
+INFO: [VRFC 10-2458] undeclared symbol wr_eop_ad, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:1331]
+INFO: [VRFC 10-2458] undeclared symbol rd_eop_ad, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:1332]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_axis, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:1574]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_wach, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:2099]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_wdch, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:2319]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_wrch, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:2486]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_rach, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:2866]
+INFO: [VRFC 10-2458] undeclared symbol rd_rst_busy_rdch, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:3099]
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_vlog_beh [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:98]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_CONV_VER
+INFO: [VRFC 10-2458] undeclared symbol safety_ckt_rd_rst, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:4153]
+INFO: [VRFC 10-2458] undeclared symbol safety_ckt_rd_rst, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:4361]
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_CONV_VER [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:3366]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_sync_stage
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_sync_stage [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:4938]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_bhv_ver_as
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_bhv_ver_as [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:4959]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_beh_ver_ll_afifo
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_beh_ver_ll_afifo [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:6937]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_bhv_ver_ss
+INFO: [VRFC 10-2458] undeclared symbol srst_wrst_busy, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:7793]
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_bhv_ver_ss [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:7065]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_bhv_ver_preload0
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_bhv_ver_preload0 [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:9206]
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2_axic_reg_slice
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2_axic_reg_slice [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/simulation/fifo_generator_vlog_beh.v:10324]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/hdl/fifo_generator_v13_2_rfs.v" into library fifo_generator_v13_2_2
+INFO: [VRFC 10-311] analyzing module fifo_generator_v13_2_2
+INFO: [VRFC 10-2458] undeclared symbol sleep_i, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/hdl/fifo_generator_v13_2_rfs.v:519]
+WARNING: [VRFC 10-2845] overwriting previous definition of module fifo_generator_v13_2_2 [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/hdl/fifo_generator_v13_2_rfs.v:74]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/axis_data_fifo_v1_1_18/hdl/axis_data_fifo_v1_1_vl_rfs.v" into library axis_data_fifo_v1_1_18
+INFO: [VRFC 10-311] analyzing module axis_data_fifo_v1_1_18_axis_data_fifo
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/SimpleSumeSwitch/Deparser.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Deparser
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/SimpleSumeSwitch/Parser.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Parser
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/SimpleSumeSwitch/Pipeline.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Pipeline
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/SimpleSumeSwitch/SimpleSumeSwitchCpp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleSumeSwitchCpp
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/SimpleSumeSwitch/SimpleSumeSwitchCpp_AXILiteS_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module SimpleSumeSwitchCpp_AXILiteS_s_axi
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/wrapper/sume_to_sdnet.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sume_to_sdnet
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/nf_sume_sdnet_ip/wrapper/nf_sume_sdnet.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nf_sume_sdnet
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/nf_sume_sdnet_ip/sim/nf_sume_sdnet_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nf_sume_sdnet_ip
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/small_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module small_fifo
+WARNING: [VRFC 10-2845] overwriting previous definition of module small_fifo [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/small_fifo.v:44]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/fallthrough_small_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fallthrough_small_fifo
+WARNING: [VRFC 10-2845] overwriting previous definition of module fallthrough_small_fifo [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/fallthrough_small_fifo.v:46]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/input_arbiter_drr_cpu_regs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_arbiter_drr_cpu_regs
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/input_arbiter_drr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_arbiter_drr
+INFO: [VRFC 10-2458] undeclared symbol resetn_sync, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/hdl/input_arbiter_drr.v:431]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/input_arbiter_drr_ip/sim/input_arbiter_drr_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_arbiter_drr_ip
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/clk_wiz_ip/clk_wiz_ip_clk_wiz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_ip_clk_wiz
+INFO: [VRFC 10-2458] undeclared symbol clk_out1_clk_wiz_ip_en_clk, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/clk_wiz_ip/clk_wiz_ip_clk_wiz.v:207]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/clk_wiz_ip/clk_wiz_ip.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module clk_wiz_ip
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/axi_clocking.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module axi_clocking
+INFO: [VRFC 10-2458] undeclared symbol clkin1, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/axi_clocking.v:64]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module nf_datapath
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_sim.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_sim
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module top_tb
+INFO: [VRFC 10-2458] undeclared symbol pcie_7x_mgt_rxn, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:115]
+INFO: [VRFC 10-2458] undeclared symbol pcie_7x_mgt_rxp, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:116]
+INFO: [VRFC 10-2458] undeclared symbol pcie_7x_mgt_txn, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:117]
+INFO: [VRFC 10-2458] undeclared symbol pcie_7x_mgt_txp, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:118]
+INFO: [VRFC 10-2458] undeclared symbol rxp, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:121]
+INFO: [VRFC 10-2458] undeclared symbol rxn, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:122]
+INFO: [VRFC 10-2458] undeclared symbol txp, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:123]
+INFO: [VRFC 10-2458] undeclared symbol txn, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:124]
+INFO: [VRFC 10-2458] undeclared symbol i2c_clk, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:137]
+INFO: [VRFC 10-2458] undeclared symbol i2c_data, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:138]
+INFO: [VRFC 10-2458] undeclared symbol si5324_rst_n, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:139]
+INFO: [VRFC 10-2458] undeclared symbol led_0, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:146]
+INFO: [VRFC 10-2458] undeclared symbol led_1, assumed default net type wire [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:147]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+xvhdl --incr --relax -prj top_tb_vhdl.prj
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/lib_pkg_v1_0_2/hdl/lib_pkg_v1_0_rfs.vhd" into library lib_pkg_v1_0_2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/lib_srl_fifo_v1_0_2/hdl/lib_srl_fifo_v1_0_rfs.vhd" into library lib_srl_fifo_v1_0_2
+INFO: [VRFC 10-307] analyzing entity cntr_incr_decr_addn_f
+INFO: [VRFC 10-307] analyzing entity dynshreg_f
+INFO: [VRFC 10-307] analyzing entity srl_fifo_rbu_f
+INFO: [VRFC 10-307] analyzing entity srl_fifo_f
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axi_sim_transactor_ip/hdl/axis_sim_pkg/axis_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axi_sim_transactor_ip/hdl/transactor_fifos.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity transactor_fifos
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axi_sim_transactor_ip/hdl/axi_sim_transactor.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi_sim_transactor
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axi_sim_transactor_ip/sim/axi_sim_transactor_ip.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axi_sim_transactor_ip
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/bd/control_sub/ipshared/7aff/hdl/fifo_generator_v13_2_rfs.vhd" into library fifo_generator_v13_2_2
+INFO: [VRFC 10-307] analyzing entity input_blk
+INFO: [VRFC 10-307] analyzing entity output_blk
+INFO: [VRFC 10-307] analyzing entity shft_wrapper
+INFO: [VRFC 10-307] analyzing entity shft_ram
+INFO: [VRFC 10-307] analyzing entity wr_pf_as
+INFO: [VRFC 10-307] analyzing entity wr_pf_ss
+INFO: [VRFC 10-307] analyzing entity rd_pe_as
+INFO: [VRFC 10-307] analyzing entity rd_pe_ss
+INFO: [VRFC 10-307] analyzing entity synchronizer_ff
+INFO: [VRFC 10-307] analyzing entity delay
+INFO: [VRFC 10-307] analyzing entity bin_cntr
+INFO: [VRFC 10-307] analyzing entity clk_x_pntrs_builtin
+INFO: [VRFC 10-307] analyzing entity logic_builtin
+INFO: [VRFC 10-307] analyzing entity builtin_prim
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth
+INFO: [VRFC 10-307] analyzing entity builtin_top
+INFO: [VRFC 10-307] analyzing entity reset_builtin
+INFO: [VRFC 10-307] analyzing entity builtin_prim_v6
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth_v6
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth_low_latency
+INFO: [VRFC 10-307] analyzing entity builtin_top_v6
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_2_2_builtin
+INFO: [VRFC 10-307] analyzing entity bram_sync_reg
+INFO: [VRFC 10-307] analyzing entity bram_fifo_rstlogic
+INFO: [VRFC 10-307] analyzing entity reset_blk_ramfifo
+INFO: [VRFC 10-307] analyzing entity axi_reg_slice
+INFO: [VRFC 10-307] analyzing entity fifo_generator_top
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_2_2_synth
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_pkg/axis_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/sim/axis_sim_stim_ip4.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim_ip4
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip3/hdl/axis_sim_pkg/axis_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip3/hdl/axis_sim_stim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip3/sim/axis_sim_stim_ip3.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim_ip3
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip2/hdl/axis_sim_pkg/axis_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip2/hdl/axis_sim_stim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip2/sim/axis_sim_stim_ip2.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim_ip2
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip1/hdl/axis_sim_pkg/axis_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip1/hdl/axis_sim_stim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip1/sim/axis_sim_stim_ip1.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim_ip1
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip0/hdl/axis_sim_pkg/axis_sim_pkg.vhd" into library xil_defaultlib
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip0/hdl/axis_sim_stim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip0/sim/axis_sim_stim_ip0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity axis_sim_stim_ip0
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.ip_user_files/ipstatic/fifo_generator_v13_2_2/hdl/fifo_generator_v13_2_rfs.vhd" into library fifo_generator_v13_2_2
+INFO: [VRFC 10-307] analyzing entity input_blk
+INFO: [VRFC 10-307] analyzing entity output_blk
+INFO: [VRFC 10-307] analyzing entity shft_wrapper
+INFO: [VRFC 10-307] analyzing entity shft_ram
+INFO: [VRFC 10-307] analyzing entity wr_pf_as
+INFO: [VRFC 10-307] analyzing entity wr_pf_ss
+INFO: [VRFC 10-307] analyzing entity rd_pe_as
+INFO: [VRFC 10-307] analyzing entity rd_pe_ss
+INFO: [VRFC 10-307] analyzing entity synchronizer_ff
+INFO: [VRFC 10-307] analyzing entity delay
+INFO: [VRFC 10-307] analyzing entity bin_cntr
+INFO: [VRFC 10-307] analyzing entity clk_x_pntrs_builtin
+INFO: [VRFC 10-307] analyzing entity logic_builtin
+INFO: [VRFC 10-307] analyzing entity builtin_prim
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth
+INFO: [VRFC 10-307] analyzing entity builtin_top
+INFO: [VRFC 10-307] analyzing entity reset_builtin
+INFO: [VRFC 10-307] analyzing entity builtin_prim_v6
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth_v6
+INFO: [VRFC 10-307] analyzing entity builtin_extdepth_low_latency
+INFO: [VRFC 10-307] analyzing entity builtin_top_v6
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_2_2_builtin
+INFO: [VRFC 10-307] analyzing entity bram_sync_reg
+INFO: [VRFC 10-307] analyzing entity bram_fifo_rstlogic
+INFO: [VRFC 10-307] analyzing entity reset_blk_ramfifo
+INFO: [VRFC 10-307] analyzing entity axi_reg_slice
+INFO: [VRFC 10-307] analyzing entity fifo_generator_top
+INFO: [VRFC 10-307] analyzing entity fifo_generator_v13_2_2_synth
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim'
+Vivado Simulator 2018.2
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 6d581c62056f4eb58ec23f08303179f9 --incr --debug typical --relax --mt 8 -d SIMULATION=1 -L xil_defaultlib -L lib_pkg_v1_0_2 -L lib_srl_fifo_v1_0_2 -L axi_infrastructure_v1_1_0 -L fifo_generator_v13_2_2 -L axi_clock_converter_v2_1_16 -L generic_baseblocks_v2_1_0 -L axi_register_slice_v2_1_17 -L axi_data_fifo_v2_1_16 -L axi_crossbar_v2_1_18 -L axi_mmu_v2_1_15 -L axi_protocol_converter_v2_1_17 -L blk_mem_gen_v8_4_1 -L axis_infrastructure_v1_1_0 -L axis_data_fifo_v1_1_18 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot top_tb_behav xil_defaultlib.top_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 8 for port pcie_7x_mgt_rxn [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:115]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 8 for port pcie_7x_mgt_rxp [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:116]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 8 for port pcie_7x_mgt_txn [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:117]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 8 for port pcie_7x_mgt_txp [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:118]
+WARNING: [VRFC 10-278] actual bit length 1 differs from formal bit length 2 for port i2c_reset [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/top_tb.v:139]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 12 for port S_AXI_AWADDR [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:256]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 12 for port S_AXI_ARADDR [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:262]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 12 for port S_AXI_AWADDR [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:298]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 12 for port S_AXI_ARADDR [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:304]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 17 for port nf0_q_size [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:372]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 17 for port nf1_q_size [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:373]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 17 for port nf2_q_size [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:374]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 17 for port nf3_q_size [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:375]
+WARNING: [VRFC 10-278] actual bit length 16 differs from formal bit length 17 for port dma_q_size [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:376]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 12 for port S_AXI_AWADDR [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:393]
+WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 12 for port S_AXI_ARADDR [/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/hdl/nf_datapath.v:399]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 100fs
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling package xil_defaultlib.axis_sim_pkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package lib_pkg_v1_0_2.lib_pkg
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.OBUF
+Compiling module unisims_ver.IBUFDS_GTE2
+Compiling module unisims_ver.IBUFDS
+Compiling module unisims_ver.MMCME2_ADV(CLKIN1_PERIOD=5.0,CLK...
+Compiling module unisims_ver.BUFG
+Compiling module unisims_ver.BUFGCE_default
+Compiling module unisims_ver.BUFH
+Compiling module xil_defaultlib.clk_wiz_ip_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_ip
+Compiling module xil_defaultlib.axi_clocking
+Compiling module xil_defaultlib.small_fifo(WIDTH=417,MAX_DEPTH_B...
+Compiling module xil_defaultlib.fallthrough_small_fifo(WIDTH=417...
+Compiling module xil_defaultlib.input_arbiter_drr_cpu_regs(C_BAS...
+Compiling module xil_defaultlib.input_arbiter_drr(C_BASEADDR=32'...
+Compiling module xil_defaultlib.input_arbiter_drr_ip
+Compiling module xil_defaultlib.sume_to_sdnet
+Compiling module xil_defaultlib.SimpleSumeSwitchCpp_AXILiteS_s_a...
+Compiling module xil_defaultlib.Pipeline
+Compiling module xil_defaultlib.Parser
+Compiling module xil_defaultlib.Deparser
+Compiling module xil_defaultlib.SimpleSumeSwitchCpp
+Compiling module xil_defaultlib.nf_sume_sdnet
+Compiling module xil_defaultlib.nf_sume_sdnet_ip
+Compiling module xil_defaultlib.sss_small_fifo(WIDTH=289,MAX_DEP...
+Compiling module xil_defaultlib.sss_fallthrough_small_fifo(WIDTH...
+Compiling module xil_defaultlib.small_fifo(WIDTH=128,MAX_DEPTH_B...
+Compiling module xil_defaultlib.fallthrough_small_fifo(WIDTH=128...
+Compiling module xil_defaultlib.sss_output_queues_cpu_regs(C_BAS...
+Compiling module xil_defaultlib.sss_output_queues(C_BASEADDR=32'...
+Compiling module xil_defaultlib.sss_output_queues_ip
+Compiling module xil_defaultlib.nf_datapath
+Compiling module blk_mem_gen_v8_4_1.beh_vlog_ff_clr_v8_4(INIT=1'b0)
+Compiling module blk_mem_gen_v8_4_1.beh_vlog_ff_pre_v8_4(INIT=1'b1)
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010001...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b111101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b100010...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010111...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011111...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011101...
+Compiling module blk_mem_gen_v8_4_1.write_netlist_v8_4_default
+Compiling module blk_mem_gen_v8_4_1.blk_mem_axi_write_wrapper_beh_v8...
+Compiling module blk_mem_gen_v8_4_1.beh_vlog_ff_ce_clr_v8_4(INIT=1'b...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b01011)
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b01000)
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b0100)
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b111011...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010001...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010000...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011111...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b01)
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b0111)
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010000...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010001...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b111111...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b111100...
+Compiling module blk_mem_gen_v8_4_1.beh_vlog_muxf7_v8_4
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010101...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011100...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011111...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010001...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b010001...
+Compiling module blk_mem_gen_v8_4_1.STATE_LOGIC_v8_4(INIT=64'b011100...
+Compiling module blk_mem_gen_v8_4_1.read_netlist_v8_4(C_ADDRB_WIDTH=...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_axi_read_wrapper_beh_v8_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_ELABORATION...
+Compiling module xil_defaultlib.identifier_ip
+Compiling architecture rtl of entity xil_defaultlib.axis_sim_stim [\axis_sim_stim(input_file="/home...]
+Compiling architecture axis_sim_stim_ip0_arch of entity xil_defaultlib.axis_sim_stim_ip0 [axis_sim_stim_ip0_default]
+Compiling architecture rtl of entity xil_defaultlib.axis_sim_stim [\axis_sim_stim(input_file="/home...]
+Compiling architecture axis_sim_stim_ip1_arch of entity xil_defaultlib.axis_sim_stim_ip1 [axis_sim_stim_ip1_default]
+Compiling architecture rtl of entity xil_defaultlib.axis_sim_stim [\axis_sim_stim(input_file="/home...]
+Compiling architecture axis_sim_stim_ip2_arch of entity xil_defaultlib.axis_sim_stim_ip2 [axis_sim_stim_ip2_default]
+Compiling architecture rtl of entity xil_defaultlib.axis_sim_stim [\axis_sim_stim(input_file="/home...]
+Compiling architecture axis_sim_stim_ip3_arch of entity xil_defaultlib.axis_sim_stim_ip3 [axis_sim_stim_ip3_default]
+Compiling architecture rtl of entity xil_defaultlib.axis_sim_stim [\axis_sim_stim(input_file="/home...]
+Compiling architecture axis_sim_stim_ip4_arch of entity xil_defaultlib.axis_sim_stim_ip4 [axis_sim_stim_ip4_default]
+Compiling module xil_defaultlib.axis_sim_record(OUTPUT_FILE="/ho...
+Compiling module xil_defaultlib.axis_sim_record_ip0
+Compiling module xil_defaultlib.axis_sim_record(OUTPUT_FILE="/ho...
+Compiling module xil_defaultlib.axis_sim_record_ip1
+Compiling module xil_defaultlib.axis_sim_record(OUTPUT_FILE="/ho...
+Compiling module xil_defaultlib.axis_sim_record_ip2
+Compiling module xil_defaultlib.axis_sim_record(OUTPUT_FILE="/ho...
+Compiling module xil_defaultlib.axis_sim_record_ip3
+Compiling module xil_defaultlib.axis_sim_record(OUTPUT_FILE="/ho...
+Compiling module xil_defaultlib.axis_sim_record_ip4
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_sync_stag...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_a...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_p...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_CONV_VER(...
+Compiling module fifo_generator_v13_2_2.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_a...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_p...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_CONV_VER(...
+Compiling module fifo_generator_v13_2_2.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_a...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_p...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_CONV_VER(...
+Compiling module fifo_generator_v13_2_2.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module fifo_generator_v13_2_2.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_a...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_bhv_ver_p...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2_CONV_VER(...
+Compiling module fifo_generator_v13_2_2.fifo_generator_vlog_beh(C_DATA_C...
+Compiling module fifo_generator_v13_2_2.fifo_generator_v13_2_2(C_DATA_CO...
+Compiling module axi_clock_converter_v2_1_16.axi_clock_converter_v2_1_16_axi_...
+Compiling module xil_defaultlib.control_sub_axi_clock_converter_...
+Compiling module axi_data_fifo_v2_1_16.axi_data_fifo_v2_1_16_axi_data_f...
+Compiling module xil_defaultlib.control_sub_m00_data_fifo_0
+Compiling module xil_defaultlib.m00_couplers_imp_35MSE9
+Compiling module xil_defaultlib.control_sub_m01_data_fifo_0
+Compiling module xil_defaultlib.m01_couplers_imp_159MA5B
+Compiling module xil_defaultlib.control_sub_m02_data_fifo_0
+Compiling module xil_defaultlib.m02_couplers_imp_1UHPQGS
+Compiling module xil_defaultlib.control_sub_m03_data_fifo_0
+Compiling module xil_defaultlib.m03_couplers_imp_V7OM1U
+Compiling module xil_defaultlib.control_sub_m04_data_fifo_0
+Compiling module xil_defaultlib.m04_couplers_imp_73P722
+Compiling module xil_defaultlib.control_sub_m05_data_fifo_0
+Compiling module xil_defaultlib.m05_couplers_imp_1194TWK
+Compiling module xil_defaultlib.control_sub_m06_data_fifo_0
+Compiling module xil_defaultlib.m06_couplers_imp_1YASCCN
+Compiling module xil_defaultlib.control_sub_m07_data_fifo_0
+Compiling module xil_defaultlib.m07_couplers_imp_RC6YHL
+Compiling module axi_infrastructure_v1_1_0.axi_infrastructure_v1_1_0_axi2ve...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_infrastructure_v1_1_0.axi_infrastructure_v1_1_0_vector...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axi_r...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_infrastructure_v1_1_0.axi_infrastructure_v1_1_0_axi2ve...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_infrastructure_v1_1_0.axi_infrastructure_v1_1_0_vector...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axi_r...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_b...
+Compiling module axi_protocol_converter_v2_1_17.axi_protocol_converter_v2_1_17_a...
+Compiling module xil_defaultlib.control_sub_auto_pc_0
+Compiling module xil_defaultlib.control_sub_s00_data_fifo_0
+Compiling module xil_defaultlib.s00_couplers_imp_1S77UJ5
+Compiling module axi_mmu_v2_1_15.axi_mmu_v2_1_15_addr_decoder(C_F...
+Compiling module axi_mmu_v2_1_15.axi_mmu_v2_1_15_decerr_slave(C_R...
+Compiling module axi_infrastructure_v1_1_0.axi_infrastructure_v1_1_0_axi2ve...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module axi_infrastructure_v1_1_0.axi_infrastructure_v1_1_0_vector...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axi_r...
+Compiling module axi_mmu_v2_1_15.axi_mmu_v2_1_15_top(C_FAMILY="vi...
+Compiling module xil_defaultlib.control_sub_s00_mmu_0
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_addr_arbite...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_carry_...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_compar...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_compar...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_compar...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_compar...
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_addr_decode...
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_splitter(C_...
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_splitter
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_mux_en...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_mux_en...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_mux_en...
+Compiling module axi_register_slice_v2_1_17.axi_register_slice_v2_1_17_axic_...
+Compiling module generic_baseblocks_v2_1_0.generic_baseblocks_v2_1_0_mux_en...
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_decerr_slav...
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_crossbar_sa...
+Compiling module axi_crossbar_v2_1_18.axi_crossbar_v2_1_18_axi_crossba...
+Compiling module xil_defaultlib.control_sub_xbar_0
+Compiling module xil_defaultlib.control_sub_axi_interconnect_0_0
+Compiling module xil_defaultlib.control_sub
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.cntr_incr_decr_addn_f [\cntr_incr_decr_addn_f(c_size=5)...]
+Compiling architecture behavioral of entity lib_srl_fifo_v1_0_2.dynshreg_f [\dynshreg_f(c_depth=16,c_dwidth=...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_rbu_f [\srl_fifo_rbu_f(c_dwidth=64)(1,8...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_f [\srl_fifo_f(c_dwidth=64)(1,8)\]
+Compiling architecture behavioral of entity lib_srl_fifo_v1_0_2.dynshreg_f [\dynshreg_f(c_depth=16,c_dwidth=...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_rbu_f [\srl_fifo_rbu_f(c_dwidth=32)(1,8...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_f [\srl_fifo_f(c_dwidth=32)(1,8)\]
+Compiling architecture behavioral of entity lib_srl_fifo_v1_0_2.dynshreg_f [\dynshreg_f(c_depth=16,c_dwidth=...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_rbu_f [\srl_fifo_rbu_f(c_dwidth=36)(1,8...]
+Compiling architecture imp of entity lib_srl_fifo_v1_0_2.srl_fifo_f [\srl_fifo_f(c_dwidth=36)(1,8)\]
+Compiling architecture rtl of entity xil_defaultlib.transactor_fifos [transactor_fifos_default]
+Compiling architecture rtl of entity xil_defaultlib.axi_sim_transactor [\axi_sim_transactor(stim_file="/...]
+Compiling architecture axi_sim_transactor_ip_arch of entity xil_defaultlib.axi_sim_transactor_ip [axi_sim_transactor_ip_default]
+Compiling module xil_defaultlib.barrier
+Compiling module xil_defaultlib.barrier_ip
+Compiling module xil_defaultlib.top_sim(PL_SIM_FAST_LINK_TRAININ...
+Compiling module xil_defaultlib.top_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot top_tb_behav
+
+****** Webtalk v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim/xsim.dir/top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Jan 17 20:47:47 2024...
+run_program: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 2107.957 ; gain = 0.000 ; free physical = 546 ; free virtual = 2620
+INFO: [USF-XSim-69] 'elaborate' step finished in '7' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "top_tb_behav -key {Behavioral:sim_1:Functional:top_tb} -tclbatch {top_tb.tcl} -log {simulate.log} -testplusarg TESTNAME=basic_test"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2018.2
+Time resolution is 100 fs
+source top_tb.tcl
+## current_wave_config
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'top_tb_behav' loaded.
+launch_simulation: Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 2107.957 ; gain = 105.238 ; free physical = 501 ; free virtual = 2602
+# set nf_datapath top_tb/top_sim/nf_datapath_0/
+# add_wave_divider {input arbiter input signals}
+# add_wave $nf_datapath/s_axis_0_tdata -color blue
+# add_wave $nf_datapath/s_axis_0_tkeep -color blue
+# add_wave $nf_datapath/s_axis_0_tuser -color blue
+# add_wave $nf_datapath/s_axis_0_tvalid -color blue
+# add_wave $nf_datapath/s_axis_0_tready -color blue
+# add_wave $nf_datapath/s_axis_0_tlast -color blue
+# add_wave $nf_datapath/s_axis_1_tdata -color gold
+# add_wave $nf_datapath/s_axis_1_tkeep -color gold
+# add_wave $nf_datapath/s_axis_1_tuser -color gold
+# add_wave $nf_datapath/s_axis_1_tvalid -color gold
+# add_wave $nf_datapath/s_axis_1_tready -color gold
+# add_wave $nf_datapath/s_axis_1_tlast -color gold
+# add_wave $nf_datapath/s_axis_2_tdata -color orange
+# add_wave $nf_datapath/s_axis_2_tkeep -color orange
+# add_wave $nf_datapath/s_axis_2_tuser -color orange
+# add_wave $nf_datapath/s_axis_2_tvalid -color orange
+# add_wave $nf_datapath/s_axis_2_tready -color orange
+# add_wave $nf_datapath/s_axis_2_tlast -color orange
+# add_wave $nf_datapath/s_axis_3_tdata -color purple
+# add_wave $nf_datapath/s_axis_3_tkeep -color purple
+# add_wave $nf_datapath/s_axis_3_tuser -color purple
+# add_wave $nf_datapath/s_axis_3_tvalid -color purple
+# add_wave $nf_datapath/s_axis_3_tready -color purple
+# add_wave $nf_datapath/s_axis_3_tlast -color purple
+# add_wave $nf_datapath/s_axis_4_tdata -color cyan
+# add_wave $nf_datapath/s_axis_4_tkeep -color cyan
+# add_wave $nf_datapath/s_axis_4_tuser -color cyan
+# add_wave $nf_datapath/s_axis_4_tvalid -color cyan
+# add_wave $nf_datapath/s_axis_4_tready -color cyan
+# add_wave $nf_datapath/s_axis_4_tlast -color cyan
+# add_wave_divider {output queues input signals}
+# add_wave $nf_datapath/m_axis_opl_tdata -color  magenta
+# add_wave $nf_datapath/m_axis_opl_tkeep -color  magenta
+# add_wave $nf_datapath/m_axis_opl_tuser -color  magenta
+# add_wave $nf_datapath/m_axis_opl_tvalid -color magenta
+# add_wave $nf_datapath/m_axis_opl_tready -color magenta
+# add_wave $nf_datapath/m_axis_opl_tlast -color  magenta
+# add_wave_divider {output queues output signals}
+# add_wave $nf_datapath/m_axis_0_tdata -color blue
+# add_wave $nf_datapath/m_axis_0_tkeep -color blue
+# add_wave $nf_datapath/m_axis_0_tuser -color blue
+# add_wave $nf_datapath/m_axis_0_tvalid -color blue
+# add_wave $nf_datapath/m_axis_0_tready -color blue
+# add_wave $nf_datapath/m_axis_0_tlast -color blue
+# set sdnet_ip top_tb/top_sim/nf_datapath_0/nf_sume_sdnet_wrapper_1/inst/SimpleSumeSwitch_inst/
+# add_wave_divider {SimpleModelCpp}
+# add_wave $sdnet_ip/in_TVALID_V  -color purple
+# add_wave $sdnet_ip/in_TREADY_V  -color purple
+# add_wave $sdnet_ip/in_TDATA_V   -color purple
+# add_wave $sdnet_ip/in_TKEEP_V  -color purple
+# add_wave $sdnet_ip/in_TLAST_V  -color purple
+# add_wave $sdnet_ip/out_TVALID_V -color khaki
+# add_wave $sdnet_ip/out_TREADY_V -color khaki
+# add_wave $sdnet_ip/out_TDATA_V   -color khaki
+# add_wave $sdnet_ip/out_TKEEP_V  -color khaki
+# add_wave $sdnet_ip/out_TLAST_V  -color khaki
+# add_wave  $sdnet_ip/internal_rst_done_V -color yellow
+# set nf_sume_sdnet_ip top_tb/top_sim/nf_datapath_0/nf_sume_sdnet_wrapper_1/inst/
+# add_wave_divider {nf_sume_sdnet input interface}
+# add_wave $sdnet_ip/clk_lookup_rst_V
+# add_wave $sdnet_ip/clk_lookup_V
+# add_wave $nf_sume_sdnet_ip/s_axis_tdata -radix hex
+# add_wave $nf_sume_sdnet_ip/s_axis_tkeep -radix hex
+# add_wave $nf_sume_sdnet_ip/s_axis_tvalid
+# add_wave $nf_sume_sdnet_ip/s_axis_tready
+# add_wave $nf_sume_sdnet_ip/s_axis_tlast
+# add_wave_divider {nf_sume_sdnet output interface}
+# add_wave $sdnet_ip/clk_lookup_rst_V
+# add_wave $sdnet_ip/clk_lookup_V
+# add_wave $nf_sume_sdnet_ip/m_axis_tdata -radix hex
+# add_wave $nf_sume_sdnet_ip/m_axis_tkeep -radix hex
+# add_wave $nf_sume_sdnet_ip/m_axis_tvalid
+# add_wave $nf_sume_sdnet_ip/m_axis_tready
+# add_wave $nf_sume_sdnet_ip/m_axis_tlast
+# add_wave_divider {SDNet Tuple-In}
+# add_wave $nf_sume_sdnet_ip/sume_tuple_in_VALID
+# add_wave $nf_sume_sdnet_ip/s_axis_tuser -radix hex
+# add_wave $nf_sume_sdnet_ip/in_pkt_len
+# add_wave $nf_sume_sdnet_ip/in_src_port
+# add_wave $nf_sume_sdnet_ip/in_dst_port
+# add_wave_divider {SDNet Tuple-Out}
+# add_wave $nf_sume_sdnet_ip/sume_tuple_out_VALID
+# add_wave $nf_sume_sdnet_ip/m_axis_tuser -radix hex
+# add_wave $nf_sume_sdnet_ip/out_pkt_len
+# add_wave $nf_sume_sdnet_ip/out_src_port
+# add_wave $nf_sume_sdnet_ip/out_dst_port
+# add_wave_divider {SUME output interface}
+# add_wave $nf_datapath/m_axis_0_tdata -color  magenta
+# add_wave $nf_datapath/m_axis_0_tkeep -color  magenta
+# add_wave $nf_datapath/m_axis_0_tuser -color  magenta
+# add_wave $nf_datapath/m_axis_0_tvalid -color magenta
+# add_wave $nf_datapath/m_axis_0_tready -color magenta
+# add_wave $nf_datapath/m_axis_0_tlast -color  magenta
+# run 65us
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module top_tb.top_sim.identifier.inst.axi_mem_module.blk_mem_gen_v8_4_1_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+WARNING: Behavioral models for independent clock FIFO configurations do not model synchronization delays. The behavioral models are functionally correct, and will represent the behavior of the configured FIFO. See the FIFO Generator User Guide for more information.
+Warning: [Unisim MMCME2_ADV-20] Input CLKIN1 period and attribute CLKIN1_PERIOD are not same. Instance top_tb.top_sim.axi_clocking_i.clk_wiz_i.inst.mmcm_adv_inst 
+Reset Deasserted
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/reg_expect.axi: end of stimuli @ 800 ns.
+Note: Time is 800 ns.
+Time: 800 ns  Iteration: 5  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 1 barriers
+Note: Time is 800 ns.
+Time: 800 ns  Iteration: 5  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 1 barriers
+Note: Time is 800 ns.
+Time: 800 ns  Iteration: 5  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 1 barriers
+Note: Time is 800 ns.
+Time: 800 ns  Iteration: 5  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 1 barriers
+Note: Time is 800 ns.
+Time: 800 ns  Iteration: 5  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 1 barriers
+Note: Time is 808 ns.
+Time: 808 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 808 ns.
+Time: 808 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 808 ns.
+Time: 808 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 808 ns.
+Time: 808 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 808 ns.
+Time: 808 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+810 ns. Info: barrier request transactor
+Note: Time is 812 ns.
+Time: 812 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+Note: Time is 812 ns.
+Time: 812 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+Note: Time is 812 ns.
+Time: 812 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+Note: Time is 812 ns.
+Time: 812 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+Note: Time is 812 ns.
+Time: 812 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+Note: Time is 814 ns.
+Time: 814 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 814 ns.
+Time: 814 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 814 ns.
+Time: 814 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 814 ns.
+Time: 814 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 814 ns.
+Time: 814 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 814 ns.
+Time: 814 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 2 barriers
+814 ns.Info: barrier complete transactor
+Note: Time is 820 ns.
+Time: 820 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 824 ns.
+Time: 824 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+920 ns. Info: barrier request transactor
+Note: Time is 10844 ns.
+Time: 10844500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 11844 ns.
+Time: 11844500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 12844 ns.
+Time: 12844500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 13844 ns.
+Time: 13844500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 14868 ns.
+Time: 14868500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 15868 ns.
+Time: 15868500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 16868 ns.
+Time: 16868500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 17868 ns.
+Time: 17868500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 18892 ns.
+Time: 18892500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 19892 ns.
+Time: 19892500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 20892 ns.
+Time: 20892500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 21892 ns.
+Time: 21892500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 22916 ns.
+Time: 22916500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 23916 ns.
+Time: 23916500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 24916 ns.
+Time: 24916500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 25916 ns.
+Time: 25916500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 26940 ns.
+Time: 26940500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 26944 ns.
+Time: 26944 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 2 barriers
+Note: Time is 26956 ns.
+Time: 26956 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 5 ingress packets
+Note: Time is 26964 ns.
+Time: 26964 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 27940 ns.
+Time: 27940500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 27944 ns.
+Time: 27944 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 2 barriers
+Note: Time is 27956 ns.
+Time: 27956 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 5 ingress packets
+Note: Time is 27964 ns.
+Time: 27964 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 28940 ns.
+Time: 28940500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 28944 ns.
+Time: 28944 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 2 barriers
+Note: Time is 28956 ns.
+Time: 28956 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 5 ingress packets
+Note: Time is 28964 ns.
+Time: 28964 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 29944 ns.
+Time: 29944500 ps  Iteration: 0  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Sending next ingress packet
+Note: Time is 29948 ns.
+Time: 29948 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 2 barriers
+Note: Time is 29960 ns.
+Time: 29960 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 5 ingress packets
+Note: Time is 29968 ns.
+Time: 29968 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 3 barriers
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 3 barriers
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 3 barriers
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 3 barriers
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+Note: Time is 30097 ns.
+Time: 30097 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: Input file contains:
+Info: 3 barriers
+30097 ns.Info: barrier complete transactor
+Note: Time is 30104 ns.
+Time: 30104 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 30104 ns.
+Time: 30104 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 30104 ns.
+Time: 30104 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 30104 ns.
+Time: 30104 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 30104 ns.
+Time: 30104 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: 0 ingress packets
+Note: Time is 30108 ns.
+Time: 30108 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 30108 ns.
+Time: 30108 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 30108 ns.
+Time: 30108 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 30108 ns.
+Time: 30108 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 5 pkts
+Note: Time is 30108 ns.
+Time: 30108 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier request: expecting 0 pkts
+30210 ns. Info: barrier request transactor
+Note: Time is 30212 ns.
+Time: 30212 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_0/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/nf_interface_0_stim.axi: end of stimuli @ 30212 ns.
+Note: Time is 30212 ns.
+Time: 30212 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_1/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/nf_interface_1_stim.axi: end of stimuli @ 30212 ns.
+Note: Time is 30212 ns.
+Time: 30212 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_2/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/nf_interface_2_stim.axi: end of stimuli @ 30212 ns.
+Note: Time is 30212 ns.
+Time: 30212 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_3/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/nf_interface_3_stim.axi: end of stimuli @ 30212 ns.
+Note: Time is 30212 ns.
+Time: 30212 ns  Iteration: 2  Process: /top_tb/top_sim/axis_sim_stim_4/U0/line__90  File: /home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/hw/project/simple_sume_switch.srcs/sources_1/ip/axis_sim_stim_ip4/hdl/axis_sim_stim.vhd
+Info: barrier complete
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/dma_0_stim.axi: end of stimuli @ 30212 ns.
+30212 ns.Info: barrier complete transactor
+
+/home/pfrrodrigues/projects/SimpleModelCpp/contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/simple_sume_switch/test/reg_stim.axi: end of stimuli @ 30310 ns.
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 17 20:47:55 2024...
