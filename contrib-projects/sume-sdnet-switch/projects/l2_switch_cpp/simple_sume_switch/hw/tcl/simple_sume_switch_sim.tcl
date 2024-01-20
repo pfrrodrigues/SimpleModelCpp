@@ -281,17 +281,17 @@ set sdnet_ip top_tb/top_sim/nf_datapath_0/nf_sume_sdnet_wrapper_1/inst/SimpleSum
 
 add_wave_divider {SimpleModelCpp}
 
-add_wave $sdnet_ip/in_TVALID_V  -color purple
-add_wave $sdnet_ip/in_TREADY_V  -color purple
-add_wave $sdnet_ip/in_TDATA_V   -color purple
-add_wave $sdnet_ip/in_TKEEP_V  -color purple
-add_wave $sdnet_ip/in_TLAST_V  -color purple
+add_wave $sdnet_ip/s_axis_TVALID_V  -color purple
+add_wave $sdnet_ip/s_axis_TREADY_V  -color purple
+add_wave $sdnet_ip/s_axis_TDATA_V   -color purple
+add_wave $sdnet_ip/s_axis_TKEEP_V  -color purple
+add_wave $sdnet_ip/s_axis_TLAST_V  -color purple
 
-add_wave $sdnet_ip/out_TVALID_V -color khaki
-add_wave $sdnet_ip/out_TREADY_V -color khaki
-add_wave $sdnet_ip/out_TDATA_V   -color khaki
-add_wave $sdnet_ip/out_TKEEP_V  -color khaki
-add_wave $sdnet_ip/out_TLAST_V  -color khaki
+add_wave $sdnet_ip/m_axis_TVALID_V -color khaki
+add_wave $sdnet_ip/m_axis_TREADY_V -color khaki
+add_wave $sdnet_ip/m_axis_TDATA_V   -color khaki
+add_wave $sdnet_ip/m_axis_TKEEP_V  -color khaki
+add_wave $sdnet_ip/m_axis_TLAST_V  -color khaki
 
 add_wave  $sdnet_ip/internal_rst_done_V -color yellow
 
