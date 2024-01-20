@@ -171,14 +171,14 @@ sume_to_sdnet sume_to_sdnet_i (
 //#################################
 //####     SDNet module
 //#################################
-SimpleSumeSwitchCpp SimpleSumeSwitch_inst (
+SMCPP_Top SimpleSumeSwitch_inst (
 
 // AXIS PACKET INPUT INTERFACE
-.in_TVALID_V                                        (s_axis_tvalid),
-.in_TREADY_V                                        (s_axis_tready),
-.in_TDATA_V                                       (s_axis_tdata),
-.in_TKEEP_V                                       (s_axis_tkeep),
-.in_TLAST_V                                       (SDNet_in_TLAST),
+.s_axis_TVALID_V                                        (s_axis_tvalid),
+.s_axis_TREADY_V                                        (s_axis_tready),
+.s_axis_TDATA_V                                       (s_axis_tdata),
+.s_axis_TKEEP_V                                       (s_axis_tkeep),
+.s_axis_TLAST_V                                       (SDNet_in_TLAST),
 
 // TUPLE INPUT INTERFACE
 .tuple_in_sume_metadata_VALID_V                                      (sume_tuple_in_VALID),
@@ -208,11 +208,11 @@ SimpleSumeSwitchCpp SimpleSumeSwitch_inst (
 .enable_processing_V                                                 (1'b1), // CONSTANT
 
 // AXIS PACKET OUTPUT INTERFACE
-.out_TVALID_V                                      (m_axis_tvalid),
-.out_TREADY_V                                      (m_axis_tready),
-.out_TDATA_V                                      (m_axis_tdata),
-.out_TKEEP_V                                      (m_axis_tkeep),
-.out_TLAST_V                                      (m_axis_tlast),
+.m_axis_TVALID_V                                      (m_axis_tvalid),
+.m_axis_TREADY_V                                      (m_axis_tready),
+.m_axis_TDATA_V                                      (m_axis_tdata),
+.m_axis_TKEEP_V                                      (m_axis_tkeep),
+.m_axis_TLAST_V                                      (m_axis_tlast),
 
 // TUPLE OUTPUT INTERFACE
 .tuple_out_sume_metadata_VALID_V                                     (sume_tuple_out_VALID),   // unused
