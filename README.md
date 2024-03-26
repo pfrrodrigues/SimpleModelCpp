@@ -114,3 +114,11 @@ make install
 cd ${SUME_FOLDER}/tools/scripts
 ./nf_test.py sim --major switch --minor default
 ```
+
+- Generate Bitstream:
+
+```console
+cd $NF_DESIGN_DIR && make
+```
+
+The Makefile calls `${NF_DESIGN_DIR}/tcl/simple_sume_switch.tcl` that creates a Vivado project folder: `${NF_DESIGN_DIR}/hw/project/`
