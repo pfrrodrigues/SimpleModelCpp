@@ -10,11 +10,11 @@
 module Pipeline (
         ap_ready,
         state_read,
-        p_ethernet_dstAddr_V,
-        in_sume_metadata_vld,
+        parsed_packet_ethern,
+        in_sume_metadata_VAL,
         in_sume_metadata_V_r,
-        out_sume_metadata_vl,
-        out_sume_metadata_vl_ap_vld,
+        out_sume_metadata_VA,
+        out_sume_metadata_VA_ap_vld,
         out_sume_metadata_V,
         out_sume_metadata_V_ap_vld
 );
@@ -22,15 +22,15 @@ module Pipeline (
 
 output   ap_ready;
 input  [2:0] state_read;
-input  [47:0] p_ethernet_dstAddr_V;
-input  [0:0] in_sume_metadata_vld;
+input  [47:0] parsed_packet_ethern;
+input  [0:0] in_sume_metadata_VAL;
 input  [127:0] in_sume_metadata_V_r;
-output  [0:0] out_sume_metadata_vl;
-output   out_sume_metadata_vl_ap_vld;
+output  [0:0] out_sume_metadata_VA;
+output   out_sume_metadata_VA_ap_vld;
 output  [127:0] out_sume_metadata_V;
 output   out_sume_metadata_V_ap_vld;
 
-reg out_sume_metadata_vl_ap_vld;
+reg out_sume_metadata_VA_ap_vld;
 reg out_sume_metadata_V_ap_vld;
 
 wire   [0:0] tmp_4_fu_101_p2;
@@ -54,17 +54,17 @@ wire   [7:0] newSel13_cast_fu_211_p1;
 
 always @ (*) begin
     if ((tmp_4_fu_101_p2 == 1'd1)) begin
-        out_sume_metadata_V_ap_vld = 1'b1;
+        out_sume_metadata_VA_ap_vld = 1'b1;
     end else begin
-        out_sume_metadata_V_ap_vld = 1'b0;
+        out_sume_metadata_VA_ap_vld = 1'b0;
     end
 end
 
 always @ (*) begin
     if ((tmp_4_fu_101_p2 == 1'd1)) begin
-        out_sume_metadata_vl_ap_vld = 1'b1;
+        out_sume_metadata_V_ap_vld = 1'b1;
     end else begin
-        out_sume_metadata_vl_ap_vld = 1'b0;
+        out_sume_metadata_V_ap_vld = 1'b0;
     end
 end
 
@@ -88,7 +88,7 @@ assign or_cond_fu_169_p2 = (sel_tmp7_fu_155_p2 | sel_tmp2_fu_137_p2);
 
 assign out_sume_metadata_V = {{in_sume_metadata_V_r[127:32]}, {newSel13_cast_fu_211_p1}, {in_sume_metadata_V_r[23:0]}};
 
-assign out_sume_metadata_vl = in_sume_metadata_vld;
+assign out_sume_metadata_VA = in_sume_metadata_VAL;
 
 assign sel_tmp1_fu_131_p2 = (tmp_i_fu_107_p2 ^ 1'd1);
 
@@ -100,14 +100,14 @@ assign sel_tmp6_fu_149_p2 = (sel_tmp6_demorgan_fu_143_p2 ^ 1'd1);
 
 assign sel_tmp7_fu_155_p2 = (tmp_2_i_fu_119_p2 & sel_tmp6_fu_149_p2);
 
-assign tmp_1_i_fu_113_p2 = ((p_ethernet_dstAddr_V == 48'd8942694572552) ? 1'b1 : 1'b0);
+assign tmp_1_i_fu_113_p2 = ((parsed_packet_ethern == 48'd8942694572552) ? 1'b1 : 1'b0);
 
-assign tmp_2_i_fu_119_p2 = ((p_ethernet_dstAddr_V == 48'd9015995347720) ? 1'b1 : 1'b0);
+assign tmp_2_i_fu_119_p2 = ((parsed_packet_ethern == 48'd9015995347720) ? 1'b1 : 1'b0);
 
-assign tmp_3_i_fu_125_p2 = ((p_ethernet_dstAddr_V == 48'd9089296122888) ? 1'b1 : 1'b0);
+assign tmp_3_i_fu_125_p2 = ((parsed_packet_ethern == 48'd9089296122888) ? 1'b1 : 1'b0);
 
 assign tmp_4_fu_101_p2 = ((state_read == 3'd2) ? 1'b1 : 1'b0);
 
-assign tmp_i_fu_107_p2 = ((p_ethernet_dstAddr_V == 48'd8869393797384) ? 1'b1 : 1'b0);
+assign tmp_i_fu_107_p2 = ((parsed_packet_ethern == 48'd8869393797384) ? 1'b1 : 1'b0);
 
 endmodule //Pipeline

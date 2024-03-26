@@ -10,18 +10,18 @@
 module Deparser (
         ap_ready,
         packet_in_V_read,
-        p_ethernet_dstAddr_V,
-        p_ethernet_srcAddr_V,
-        p_ethernet_etherType,
+        parsed_packet_ethern,
+        parsed_packet_ethern_6,
+        parsed_packet_ethern_7,
         ap_return
 );
 
 
 output   ap_ready;
 input  [255:0] packet_in_V_read;
-input  [47:0] p_ethernet_dstAddr_V;
-input  [47:0] p_ethernet_srcAddr_V;
-input  [15:0] p_ethernet_etherType;
+input  [47:0] parsed_packet_ethern;
+input  [47:0] parsed_packet_ethern_6;
+input  [15:0] parsed_packet_ethern_7;
 output  [255:0] ap_return;
 
 wire   [111:0] tmp_1_fu_54_p4;
@@ -30,6 +30,6 @@ assign ap_ready = 1'b1;
 
 assign ap_return = {{packet_in_V_read[255:112]}, {tmp_1_fu_54_p4}};
 
-assign tmp_1_fu_54_p4 = {{{p_ethernet_etherType}, {p_ethernet_srcAddr_V}}, {p_ethernet_dstAddr_V}};
+assign tmp_1_fu_54_p4 = {{{parsed_packet_ethern_7}, {parsed_packet_ethern_6}}, {parsed_packet_ethern}};
 
 endmodule //Deparser
