@@ -129,6 +129,19 @@ set_property generate_synth_checkpoint false [get_files identifier_ip.xci]
 reset_target all [get_ips identifier_ip]
 generate_target all [get_ips identifier_ip]
 
+# set fifo_cpp_width 594
+# set fifo_cpp_depth 1024
+
+#Add cpp fifo
+create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name fifo_cpp
+set_property -dict [list CONFIG.Input_Data_Width {594} CONFIG.Output_Data_Width {594} \
+						 CONFIG.Input_Depth {1024} CONFIG.Output_Depth {1024} \
+						 CONFIG.Reset_Pin {true} CONFIG.Reset_Type {Synchronous_Reset} \
+						 CONFIG.Full_Flags_Reset_Value {0} CONFIG.Use_Dout_Reset {true} \
+						 CONFIG.Enable_Safety_Circuit {false}] [get_ips fifo_cpp]
+set_property generate_synth_checkpoint false [get_files fifo_cpp.xci]
+reset_target all [get_ips fifo_cpp]
+generate_target all [get_ips fifo_cpp]
 
 
 read_verilog "./hdl/axi_clocking.v"

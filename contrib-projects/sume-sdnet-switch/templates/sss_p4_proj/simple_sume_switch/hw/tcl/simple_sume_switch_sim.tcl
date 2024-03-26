@@ -151,6 +151,20 @@ set_property -dict [list CONFIG.STIM_FILE $::env(NF_DESIGN_DIR)/test/reg_stim.ax
 reset_target all [get_ips axi_sim_transactor_ip]
 generate_target all [get_ips axi_sim_transactor_ip]
 
+# set fifo_cpp_width 594
+# set fifo_cpp_depth 1024
+
+#Add cpp fifo
+create_ip -name fifo_generator -vendor xilinx.com -library ip -version 13.2 -module_name fifo_cpp
+set_property -dict [list CONFIG.Input_Data_Width {594} CONFIG.Output_Data_Width {594} \
+						 CONFIG.Input_Depth {1024} CONFIG.Output_Depth {1024} \
+						 CONFIG.Reset_Pin {true} CONFIG.Reset_Type {Synchronous_Reset} \
+						 CONFIG.Full_Flags_Reset_Value {0} CONFIG.Use_Dout_Reset {true} \
+						 CONFIG.Enable_Safety_Circuit {false}] [get_ips fifo_cpp]
+set_property generate_synth_checkpoint false [get_files fifo_cpp.xci]
+reset_target all [get_ips fifo_cpp]
+generate_target all [get_ips fifo_cpp]
+
 update_ip_catalog
 
 source $::env(NF_DESIGN_DIR)/hw/tcl/control_sub_sim.tcl
@@ -174,7 +188,7 @@ set_property compxlib.xsim_compiled_library_dir {} [current_project]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 update_compile_order -fileset sim_1
 
-set output [exec python $::env(NF_DESIGN_DIR)/test/${test_name}/run.py]
+set output [exec python2 $::env(NF_DESIGN_DIR)/test/${test_name}/run.py]
 puts $output
 
 set_property xsim.view {} [get_filesets sim_1]
