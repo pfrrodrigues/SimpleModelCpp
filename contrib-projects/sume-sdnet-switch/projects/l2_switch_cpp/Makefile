@@ -73,6 +73,6 @@ uninstall_sdnet:
 	rm -rf ${TARGET}/${SDNET_OUT_DIR}
 
 clean:
-	make -C src/ clean
+	#make -C src/ clean
 	make -C testdata/ clean
 

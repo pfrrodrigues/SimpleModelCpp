@@ -112,7 +112,7 @@ identifier:
 	echo FFFF0000 >> rom_data.txt
 	echo FFFF0000 >> rom_data.txt
 	echo FFFF0000 >> rom_data.txt
-	cp ${SUME_FOLDER}/tools/scripts/format_coe.py . && python format_coe.py && rm -f format_coe.py 
+	cp ${SUME_FOLDER}/tools/scripts/format_coe.py . && python2 format_coe.py && rm -f format_coe.py 
 	mv -f id_rom16x32.coe ../hw/create_ip/
 	mv -f rom_data.txt ../hw/create_ip/
 
@@ -125,9 +125,9 @@ sim:	simclean identifier
 reg: 	
 	vivado -mode batch -source $(NF_DESIGN_DIR)/hw/tcl/${NF_PROJECT_NAME}_defines.tcl
 	vivado -mode batch -source $(NF_DESIGN_DIR)/hw/tcl/export_registers.tcl	
-	cd ../sw/embedded/src  && cp ${SUME_FOLDER}/tools/scripts/xparam2regdefines.py . && python xparam2regdefines.py
+	cd ../sw/embedded/src  && cp ${SUME_FOLDER}/tools/scripts/xparam2regdefines.py . && python2 xparam2regdefines.py
 	cd ../sw/embedded/src  && rm -f xparam2regdefines.py && mv reg_defines.h ../
-	cd ../sw/embedded && cp ${SUME_FOLDER}/tools/scripts/python_parser.py . && python python_parser.py
+	cd ../sw/embedded && cp ${SUME_FOLDER}/tools/scripts/python_parser.py . && python2 python_parser.py
 	cd ../sw/embedded && rm -f python_parser.py && mv reg_defines.py ../../test/reg_defines_${NF_PROJECT_NAME}.py 
 	
 simgui: simclean identifier

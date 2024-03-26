@@ -120,7 +120,7 @@ def createHeader():
 
 def createSetup(first_interface,second_interface):
     with open("setup","w") as f:
-        f.write("#!/usr/bin/env python\n" + createHeader() +
+        f.write("#!/usr/bin/env python2\n" + createHeader() +
 "\n\
 \n\
 from subprocess import Popen, PIPE\n\

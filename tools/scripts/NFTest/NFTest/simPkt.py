@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 
 #
 # Copyright (C) 2010, 2011 The Board of Trustees of The Leland Stanford
