@@ -195,7 +195,7 @@ module nf_datapath #(
     /*(* mark_debug = "true" *) */ wire [((C_M_AXIS_DATA_WIDTH / 8)) - 1:0] m_axis_opl_tkeep;
     /*(* mark_debug = "true" *) */ wire [C_AXIS_TUSER_DIGEST_WIDTH-1:0]     m_axis_opl_tuser;
     /*(* mark_debug = "true" *) */ wire                                     m_axis_opl_tvalid;
-    /*(* mark_debug = "true" *) */ wire                                     m_axis_opl_tready;
+    /*(* mark_debug = "true" *) */ reg                                      m_axis_opl_tready;
     /*(* mark_debug = "true" *) */ wire                                     m_axis_opl_tlast;
  
     /*(* mark_debug = "true" *) */ wire [C_M_AXIS_DATA_WIDTH - 1:0]         m_axis_fifo_tdata;
@@ -324,11 +324,18 @@ module nf_datapath #(
 
     );
 
+    always @ (posedge axis_aclk) begin
+      if (!axis_resetn)
+        m_axis_opl_tready = 1'b0;
+      else begin
+        m_axis_opl_tready = m_axis_opl_tvalid;
+      end
+    end
 
     fifo_cpp
     fifo_cpp_inst (
       .clk(axis_aclk),
-      .srst(axis_resetn),
+      .srst(!axis_resetn),
       .din({m_axis_opl_tdata, m_axis_opl_tkeep, m_axis_opl_tuser, m_axis_opl_tlast, m_axis_opl_tvalid}),
       .wr_en(1'b1),
       .rd_en(1'b1),
@@ -356,7 +363,7 @@ module nf_datapath #(
       .s_axis_tkeep   (m_axis_fifo_tkeep), 
       .s_axis_tuser   (m_axis_fifo_tuser), 
       .s_axis_tvalid  (m_axis_fifo_tvalid), 
-      .s_axis_tready  (m_axis_opl_tready), 
+      .s_axis_tready  (m_axis_fifo_tready), 
       .s_axis_tlast   (m_axis_fifo_tlast), 
       .m_axis_0_tdata (m_axis_0_tdata), 
       .m_axis_0_tkeep (m_axis_0_tkeep), 
