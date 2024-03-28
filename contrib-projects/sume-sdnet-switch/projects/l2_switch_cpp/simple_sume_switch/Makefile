@@ -44,12 +44,8 @@ HW = hw
 SW = sw/embedded/
 TEST = test
 
-all:    clean
-	make -C ${HW} project
-	make -C ${HW} export_to_sdk
-	make -C ${SW} project
-	make -C ${SW} compile
-	make -C ${HW} load_elf
+all:
+	make -C ${HW} project	
 
 
 clean:
@@ -57,4 +53,10 @@ clean:
 	make -C ${SW} distclean
 	rm -rfv vivado*;\
 
+
+sw_steps:
+	make -C ${HW} export_to_sdk
+	make -C ${SW} project
+	make -C ${SW} compile
+	make -C ${HW} load_elf
 
