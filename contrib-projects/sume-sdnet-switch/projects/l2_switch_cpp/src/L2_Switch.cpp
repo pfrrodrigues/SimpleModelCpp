@@ -25,14 +25,7 @@ void Parser(State 			&state,
 		digest_data.vld_signal = 1;
 		digest_data.data = 0;
 
-		switch (parsed_packet.ethernet.etherType){
-		case IPV4_TYPE:
-			state = State::ADMIT;
-			break;
-		default:
-			state = State::REJECT;
-			break;
-		}
+		state = State::ADMIT;
 	}
 	else {
 		state = State::REJECT;

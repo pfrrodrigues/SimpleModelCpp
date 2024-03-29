@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="SMCPP_Top,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7vx690tffg1761-3,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=4.609400,HLS_SYN_LAT=0,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=45,HLS_SYN_LUT=251,HLS_VERSION=2018_2}" *)
+(* CORE_GENERATION_INFO="SMCPP_Top,hls_ip_2018_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=1,HLS_INPUT_PART=xc7vx690tffg1761-3,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.879400,HLS_SYN_LAT=0,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=45,HLS_SYN_LUT=227,HLS_VERSION=2018_2}" *)
 
 module SMCPP_Top (
         s_axis_TDATA_V,
@@ -107,18 +107,17 @@ reg[0:0] m_axis_TVALID_V;
 wire   [8:0] control_S_AXI_AWADDR_V;
  reg    ap_rst_n_inv;
 reg    ap_rst_n_clk_control_inv;
-wire    StgValue_58_Pipeline_fu_208_ap_ready;
-wire   [0:0] StgValue_58_Pipeline_fu_208_out_sume_metadata_VA;
-wire    StgValue_58_Pipeline_fu_208_out_sume_metadata_VA_ap_vld;
-wire   [127:0] StgValue_58_Pipeline_fu_208_out_sume_metadata_V;
-wire    StgValue_58_Pipeline_fu_208_out_sume_metadata_V_ap_vld;
-wire    Parser_ret_Parser_fu_222_ap_ready;
-wire   [47:0] Parser_ret_Parser_fu_222_ap_return_0;
-wire   [47:0] Parser_ret_Parser_fu_222_ap_return_1;
-wire   [15:0] Parser_ret_Parser_fu_222_ap_return_2;
-wire   [2:0] Parser_ret_Parser_fu_222_ap_return_3;
-wire    call_ret_Deparser_fu_228_ap_ready;
-wire   [255:0] call_ret_Deparser_fu_228_ap_return;
+wire    StgValue_57_Pipeline_fu_208_ap_ready;
+wire   [0:0] StgValue_57_Pipeline_fu_208_out_sume_metadata_VA;
+wire    StgValue_57_Pipeline_fu_208_out_sume_metadata_VA_ap_vld;
+wire   [127:0] StgValue_57_Pipeline_fu_208_out_sume_metadata_V;
+wire    StgValue_57_Pipeline_fu_208_out_sume_metadata_V_ap_vld;
+wire    Parser_ret_Parser_fu_221_ap_ready;
+wire   [47:0] Parser_ret_Parser_fu_221_ap_return_0;
+wire   [47:0] Parser_ret_Parser_fu_221_ap_return_1;
+wire   [15:0] Parser_ret_Parser_fu_221_ap_return_2;
+wire    call_ret_Deparser_fu_227_ap_ready;
+wire   [255:0] call_ret_Deparser_fu_227_ap_return;
 reg   [0:0] ap_phi_mux_storemerge_phi_fu_196_p6;
 wire   [0:0] s_axis_TVALID_V_read_read_fu_124_p2;
 wire   [0:0] m_axis_TREADY_V_read_read_fu_173_p2;
@@ -152,34 +151,32 @@ SMCPP_Top_AXILiteS_s_axi_U(
     .rst(ap_rst_n_clk_control_inv)
 );
 
-Pipeline StgValue_58_Pipeline_fu_208(
-    .ap_ready(StgValue_58_Pipeline_fu_208_ap_ready),
-    .state_read(Parser_ret_Parser_fu_222_ap_return_3),
-    .parsed_packet_ethern(Parser_ret_Parser_fu_222_ap_return_0),
+Pipeline StgValue_57_Pipeline_fu_208(
+    .ap_ready(StgValue_57_Pipeline_fu_208_ap_ready),
+    .parsed_packet_ethern(Parser_ret_Parser_fu_221_ap_return_0),
     .in_sume_metadata_VAL(tuple_in_sume_metadata_VALID_V),
     .in_sume_metadata_V_r(tuple_in_sume_metadata_DATA_V),
-    .out_sume_metadata_VA(StgValue_58_Pipeline_fu_208_out_sume_metadata_VA),
-    .out_sume_metadata_VA_ap_vld(StgValue_58_Pipeline_fu_208_out_sume_metadata_VA_ap_vld),
-    .out_sume_metadata_V(StgValue_58_Pipeline_fu_208_out_sume_metadata_V),
-    .out_sume_metadata_V_ap_vld(StgValue_58_Pipeline_fu_208_out_sume_metadata_V_ap_vld)
+    .out_sume_metadata_VA(StgValue_57_Pipeline_fu_208_out_sume_metadata_VA),
+    .out_sume_metadata_VA_ap_vld(StgValue_57_Pipeline_fu_208_out_sume_metadata_VA_ap_vld),
+    .out_sume_metadata_V(StgValue_57_Pipeline_fu_208_out_sume_metadata_V),
+    .out_sume_metadata_V_ap_vld(StgValue_57_Pipeline_fu_208_out_sume_metadata_V_ap_vld)
 );
 
-Parser Parser_ret_Parser_fu_222(
-    .ap_ready(Parser_ret_Parser_fu_222_ap_ready),
+Parser Parser_ret_Parser_fu_221(
+    .ap_ready(Parser_ret_Parser_fu_221_ap_ready),
     .packet_in_V_read(s_axis_TDATA_V),
-    .ap_return_0(Parser_ret_Parser_fu_222_ap_return_0),
-    .ap_return_1(Parser_ret_Parser_fu_222_ap_return_1),
-    .ap_return_2(Parser_ret_Parser_fu_222_ap_return_2),
-    .ap_return_3(Parser_ret_Parser_fu_222_ap_return_3)
+    .ap_return_0(Parser_ret_Parser_fu_221_ap_return_0),
+    .ap_return_1(Parser_ret_Parser_fu_221_ap_return_1),
+    .ap_return_2(Parser_ret_Parser_fu_221_ap_return_2)
 );
 
-Deparser call_ret_Deparser_fu_228(
-    .ap_ready(call_ret_Deparser_fu_228_ap_ready),
+Deparser call_ret_Deparser_fu_227(
+    .ap_ready(call_ret_Deparser_fu_227_ap_ready),
     .packet_in_V_read(s_axis_TDATA_V),
-    .parsed_packet_ethern(Parser_ret_Parser_fu_222_ap_return_0),
-    .parsed_packet_ethern_6(Parser_ret_Parser_fu_222_ap_return_1),
-    .parsed_packet_ethern_7(Parser_ret_Parser_fu_222_ap_return_2),
-    .ap_return(call_ret_Deparser_fu_228_ap_return)
+    .parsed_packet_ethern(Parser_ret_Parser_fu_221_ap_return_0),
+    .parsed_packet_ethern_6(Parser_ret_Parser_fu_221_ap_return_1),
+    .parsed_packet_ethern_7(Parser_ret_Parser_fu_221_ap_return_2),
+    .ap_return(call_ret_Deparser_fu_227_ap_return)
 );
 
 always @ (*) begin
@@ -212,7 +209,7 @@ end
 
 assign internal_rst_done_V = 1'd0;
 
-assign m_axis_TDATA_V = call_ret_Deparser_fu_228_ap_return;
+assign m_axis_TDATA_V = call_ret_Deparser_fu_227_ap_return;
 
 assign m_axis_TKEEP_V = s_axis_TKEEP_V;
 
@@ -228,8 +225,8 @@ assign tuple_out_digest_data_DATA_V = 256'd0;
 
 assign tuple_out_digest_data_VALID_V = 1'd1;
 
-assign tuple_out_sume_metadata_DATA_V = StgValue_58_Pipeline_fu_208_out_sume_metadata_V;
+assign tuple_out_sume_metadata_DATA_V = StgValue_57_Pipeline_fu_208_out_sume_metadata_V;
 
-assign tuple_out_sume_metadata_VALID_V = StgValue_58_Pipeline_fu_208_out_sume_metadata_VA;
+assign tuple_out_sume_metadata_VALID_V = StgValue_57_Pipeline_fu_208_out_sume_metadata_VA;
 
 endmodule //SMCPP_Top
