@@ -31,7 +31,7 @@
 export SMCPP_MAKE_LIBRARY_SCRIPT=${SUME_FOLDER}/tools/make_library.sh
 export SMCPP_BUILD_DRIVERS_SCRIPT=${SUME_FOLDER}/tools/build_drivers.sh
 
-export P4_PROJECT_NAME=l2_switch_cpp
+export P4_PROJECT_NAME=router
 export NF_PROJECT_NAME=simple_sume_switch
 export SUME_FOLDER=${HOME}/projects/SimpleModelCpp
 export SUME_SDNET=${SUME_FOLDER}/contrib-projects/sume-sdnet-switch
