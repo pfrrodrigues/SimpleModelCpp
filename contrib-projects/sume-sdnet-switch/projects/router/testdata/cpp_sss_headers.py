@@ -42,12 +42,12 @@ SET_REG_OP =  4
 class IPV4(Packet):
     name = "IPV4"
     fields_desc = [
+        LongField("ttl", 0)
         IPField("src", 0),
         IPField("dst", 0),
-        IntField("ttl", 0)
     ]
     def mysummary(self):
-        return self.sprintf("src=%src% dst=%dst% ttl=%ttl%")
+        return self.sprintf("ttl=%ttl% src=%src% dst=%dst%")
 
 
 bind_layers(Ether, IPV4)
