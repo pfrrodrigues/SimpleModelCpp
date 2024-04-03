@@ -123,6 +123,12 @@ MAC_addr_H[nf_id_map["nf1"]] = "08:22:22:22:22:08"
 MAC_addr_H[nf_id_map["nf2"]] = "08:33:33:33:33:08"
 MAC_addr_H[nf_id_map["nf3"]] = "08:44:44:44:44:08"
 
+MAC_SUME_addr_H = {}
+MAC_SUME_addr_H[nf_id_map["nf0"]] = "05:11:11:11:11:05"
+MAC_SUME_addr_H[nf_id_map["nf1"]] = "05:22:22:22:22:05"
+MAC_SUME_addr_H[nf_id_map["nf2"]] = "05:33:33:33:33:05"
+MAC_SUME_addr_H[nf_id_map["nf3"]] = "05:44:44:44:44:05"
+
 IP_addr_H = {}
 IP_addr_H[nf_id_map["nf0"]] = "10.0.1.1"
 IP_addr_H[nf_id_map["nf1"]] = "10.0.1.2"
@@ -144,17 +150,18 @@ def create_pkt():
         dst_MAC = MAC_addr_H[dst_host_map[src_index]]
         src_IP = IP_addr_H[src_index]
         dst_IP = IP_addr_H[dst_host_map[src_index]]                                                                                             
+        src_SUME_MAC = MAC_SUME_addr_H[dst_host_map[src_index]]                                                                                             
 
         pkt = Ether(dst=dst_MAC, src=src_MAC, type=0x0800) / \
               IPV4(src=src_IP, dst=dst_IP, ttl=20) / \
-              ((DEF_PKT_SIZE-HEADER_SIZE)*"A")
+              ((DEF_PKT_SIZE-HEADER_SIZE-4)*"A")
             #   IP(src=src_IP, dst=dst_IP, ttl=20) 
         pkt = pad_pkt(pkt, DEF_PKT_SIZE)
         applyPkt(pkt, inv_nf_id_map[src_index], time)
 
-        pkt = Ether(dst=dst_MAC, src=src_MAC, type=0x0800) / \
+        pkt = Ether(dst=dst_MAC, src=src_SUME_MAC, type=0x0800) / \
                 IPV4(src=src_IP, dst=dst_IP, ttl=20) / \
-                ((DEF_PKT_SIZE-HEADER_SIZE)*"A")
+                ((DEF_PKT_SIZE-HEADER_SIZE-4)*"A")
             #   IP(src=src_IP, dst=dst_IP, ttl=20) 
         pkt = pad_pkt(pkt, DEF_PKT_SIZE)
         expPkt(pkt, inv_nf_id_map[dst_host_map[src_index]])
