@@ -16,26 +16,10 @@
 	};
 
 	struct IPv4_h {
-		ap_uint<4> version;
-		ap_uint<4> ihl;
-		ap_uint<8> tos;
-		ap_uint<16> totalLen;
-		ap_uint<16> identification;
-		ap_uint<3> flags;
-		ap_uint<13> fragOffset;
 		ap_uint<8> ttl;
-		ap_uint<8> protocol;
-		ap_uint<16> hdrChecksum;
 		IPv4Addr_t srcAddr;
 		IPv4Addr_t dstAddr;
 	}
-
-	struct Vlan_h {
-		ap_uint<3> prio;
-		ap_uint<1> dropEligible;
-		ap_uint<12> vlanId;
-		ap_uint<16> tpid;
-	};
 
 	struct ParsedPacket_t {
 		Ethernet_h ethernet;
