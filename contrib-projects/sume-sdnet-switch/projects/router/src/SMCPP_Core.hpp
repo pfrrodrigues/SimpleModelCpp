@@ -16,9 +16,9 @@
 	};
 
 	struct IPv4_h {
-		ap_uint<8> ttl;
 		IPv4Addr_t srcAddr;
 		IPv4Addr_t dstAddr;
+		ap_uint<8> ttl;
 	}
 
 	struct ParsedPacket_t {
