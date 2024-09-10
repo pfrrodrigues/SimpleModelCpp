@@ -105,7 +105,8 @@ source settings.sh
 ```console
 cd ../contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/
 make
-make install
+make uninstall_sdnet
+make install_sdnet
 ```
 
 - Run simulation:
