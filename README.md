@@ -104,8 +104,8 @@ source settings.sh
 
 ```console
 cd ../contrib-projects/sume-sdnet-switch/projects/l2_switch_cpp/
-make
 make uninstall_sdnet
+make
 make install_sdnet
 ```
 
